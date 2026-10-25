@@ -32,6 +32,8 @@
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
     Object.keys(attrs || {}).forEach(function (k) {
+      // Never set event-handler attributes from here; text always goes in as text, never as HTML.
+      if (/^on/i.test(k)) throw new Error("el(): refusing attribute " + k);
       if (k === "text") node.textContent = attrs[k];
       else if (k === "class") node.className = attrs[k];
       else node.setAttribute(k, attrs[k]);
@@ -47,15 +49,39 @@
     });
   }
 
+  /* ---- Safe URLs ----
+     Every link and image address that comes from the JSON data is checked against these patterns
+     before it reaches the page. If a data file were ever edited carelessly or maliciously, the worst
+     outcome is a placeholder image or a missing link, never a "javascript:" URL or a foreign site. */
+  var SAFE_LOCAL_IMAGE = /^gallery\/[a-z]+\/[a-z0-9-]+\.(jpe?g|png)$/;
+  var SAFE_ASSET_PATH = /^assets\/[0-9A-Za-z_\/-]+(\.[0-9A-Za-z_-]+)*\.svg$/;
+  var SAFE_SOURCE_PAGE = /^https:\/\/commons\.wikimedia\.org\/wiki\/File:[^\s"'<>\\]+$/;
+
+  function safeLocal(path, pattern) {
+    return typeof path === "string" && pattern.test(path) && path.indexOf("..") === -1 ? path : null;
+  }
+
+  function commonsName(item) {
+    return typeof item.commons === "string" && item.commons.length ? item.commons : null;
+  }
+
   function imageSrc(item, width) {
-    if (item.local) return item.local;
+    var local = safeLocal(item.local, SAFE_LOCAL_IMAGE);
+    if (local) return local;
+    var name = commonsName(item);
+    if (!name) return PLACEHOLDER;
     return "https://commons.wikimedia.org/wiki/Special:FilePath/" +
-      encodeURIComponent(item.commons) + "?width=" + (width || REMOTE_WIDTH);
+      encodeURIComponent(name) + "?width=" + (width || REMOTE_WIDTH);
   }
 
   function sourcePage(item) {
-    return item.source_page ||
-      "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(item.commons.replace(/ /g, "_"));
+    if (typeof item.source_page === "string" && SAFE_SOURCE_PAGE.test(item.source_page)) return item.source_page;
+    var name = commonsName(item);
+    return name ? "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(name.replace(/ /g, "_")) : null;
+  }
+
+  function assetPath(path) {
+    return safeLocal(path, SAFE_ASSET_PATH);
   }
 
   function guardImage(img) {
@@ -152,7 +178,7 @@
   function makeCard(item, isCopy) {
     var era = gallery.eras[item.era] || gallery.eras.unknown;
     var card = el("button", { class: "card", type: "button" }, [
-      guardImage(el("img", { src: imageSrc(item), alt: item.pa + " — " + item.en, loading: "lazy", decoding: "async", draggable: "false" })),
+      guardImage(el("img", { src: imageSrc(item), referrerpolicy: "no-referrer", alt: item.pa + " — " + item.en, loading: "lazy", decoding: "async", draggable: "false" })),
       el("div", { class: "card__text" }, [
         el("div", { class: "card__title", text: item.pa }),
         el("div", { class: "card__era", text: era.pa })
@@ -252,10 +278,17 @@
       meta.appendChild(el("dt", { text: r[0] }));
       meta.appendChild(el("dd", { text: r[1] }));
     });
+    var source = sourcePage(item);
     meta.appendChild(el("dt", { text: "ਮੂਲ ਸਰੋਤ" }));
-    meta.appendChild(el("dd", {}, [el("a", { href: sourcePage(item), target: "_blank", rel: "noopener", text: "Wikimedia Commons" })]));
+    meta.appendChild(el("dd", source ? {} : { text: "—" }, source ? [el("a", {
+      href: source, target: "_blank", rel: "noopener noreferrer external", referrerpolicy: "no-referrer",
+      text: "Wikimedia Commons"
+    })] : []));
 
-    if (typeof dlg.showModal !== "function") { window.open(sourcePage(item), "_blank", "noopener"); return; }
+    if (typeof dlg.showModal !== "function") {
+      if (source) window.open(source, "_blank", "noopener,noreferrer");
+      return;
+    }
     returnFocus = fromCard || null;
     viewerOpen = true;
     dlg.showModal();
@@ -354,11 +387,11 @@
     });
 
     items.forEach(function (it) {
-      var files = it.files.map(function (f) {
-        return el("a", { class: "button", href: f.path, download: "", text: "⤓ " + f.label_pa + (f.label_pa !== f.label_en.toUpperCase() ? " · " + f.label_en : "") });
+      var files = it.files.filter(function (f) { return assetPath(f.path); }).map(function (f) {
+        return el("a", { class: "button", href: assetPath(f.path), download: "", text: "⤓ " + f.label_pa + (f.label_pa !== f.label_en.toUpperCase() ? " · " + f.label_en : "") });
       });
       grid.appendChild(el("article", { class: "asset" }, [
-        el("div", { class: "asset__preview" }, [el("img", { src: it.preview, alt: it.pa, loading: "lazy" })]),
+        el("div", { class: "asset__preview" }, [guardImage(el("img", { src: assetPath(it.preview) || PLACEHOLDER, alt: it.pa, loading: "lazy" }))]),
         el("div", { class: "asset__title", text: it.pa }),
         el("div", { class: "en", text: it.en }),
         it.note ? el("div", { class: "asset__note", text: it.note }) : null,

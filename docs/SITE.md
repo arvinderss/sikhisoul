@@ -5,6 +5,7 @@ The site is one static page, with no framework and no build step. Any web server
 ```
 index.html              markup and all page text (Gurmukhi first, English secondary)
 site/css/main.css       styling; tokens at the top (colours, fonts, spacing)
+site/css/fonts.css      self-hosted @font-face rules (no Google Fonts; files in site/fonts/, OFL 1.1)
 site/js/app.js          renders the gallery and library from the two JSON files
 site/data/gallery.json  image catalogue: hand-edited
 site/data/assets.json   asset index: generated, do not edit by hand
@@ -70,11 +71,18 @@ npm install            # installs Playwright (once)
 npx playwright install chromium
 npm test               # = node tests/site.test.js
 ```
-The suite starts its own local server and runs about 60 checks in a real browser at phone, tablet and desktop sizes.
+The suite starts its own local server and runs about 70 checks in a real browser at phone, tablet and desktop sizes.
 It covers: carousels rolling, swiping, ‹ › buttons and resuming; opening and closing the viewer by every route, with ✕
 always visible; the carousel working again after the viewer closes; keyboard use; filters; library tabs, search and
-that all 134 download links exist; no sideways scrolling from 320 px to 1440 px; reduced-motion behaviour; and the
+that all 134 download links exist; security and privacy (no CSP violations, no third-party requests, self-hosted fonts, hostile data neutralised); no sideways scrolling from 320 px to 1440 px; reduced-motion behaviour; and the
 integrity of the data files. Please run it before every pull request.
+
+## Security
+The page carries a strict Content-Security-Policy, so **no inline `<script>`, `style="…"` or `onclick=` attributes**.
+Put styles in `main.css` and behaviour in `app.js`. Any new URL that comes from the data must go through one of the
+allowlists at the top of `app.js`. New gallery images must be free-licensed and metadata-free
+(`python tools/strip_metadata.py`). `python tools/security_check.py` tells you if anything slipped, and the weekly
+GitHub scan does the same. See [SECURITY.md](../SECURITY.md).
 
 ## Accessibility
 - All controls are real buttons, links and form fields, at least 44 px tall.

@@ -26,7 +26,8 @@ function check(name, ok, detail) {
 
 /* ---- tiny static server (so the test has no other dependencies) ---- */
 const TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json",
-  ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png", ".md": "text/plain", ".txt": "text/plain" };
+  ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png", ".md": "text/plain", ".txt": "text/plain",
+  ".woff2": "font/woff2" };
 function serve() {
   return http.createServer((req, res) => {
     const p = path.join(ROOT, decodeURIComponent(req.url.split("?")[0]));
@@ -244,6 +245,77 @@ async function firstLoopingIndex(page) {
     const small = await page.evaluate(() => [...document.querySelectorAll("button, a.button, select, .nav a")]
       .filter((e) => e.offsetParent && e.getBoundingClientRect().height < 36).length);
     check(`touch targets ≥ 36px tall at ${w}px`, small === 0, `${small} small`);
+    await ctx.close();
+  }
+
+  /* ===== security and privacy ===== */
+  {
+    // Watch for Content-Security-Policy violations and for every request that leaves this site.
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    await ctx.addInitScript(() => {
+      window.__csp = [];
+      document.addEventListener("securitypolicyviolation", (e) => window.__csp.push(e.violatedDirective + " " + e.blockedURI));
+    });
+    const page = await ctx.newPage();
+    const foreign = new Set();
+    page.on("request", (r) => { const u = new globalThis.URL(r.url()); if (u.hostname !== "localhost") foreign.add(u.hostname); });
+    await page.route(/^https?:\/\/(?!localhost)/, (r) => r.abort());
+    await page.goto(URL);
+    await page.waitForSelector(".carousel .card");
+    await page.waitForSelector(".asset");
+    await openCard(page, page.locator(".card:not([data-copy])").first());
+    const rel = await page.evaluate(() => [...document.querySelectorAll('a[target="_blank"]')].map((a) => a.rel));
+    check("links opening a new tab use rel=noopener noreferrer",
+      rel.length > 0 && rel.every((r) => /noopener/.test(r) && /noreferrer/.test(r)), rel.join(", "));
+    await page.click("#viewer-close");
+    const csp = await page.evaluate(() => document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || "");
+    check("page declares a Content-Security-Policy", /default-src 'none'/.test(csp) && /script-src 'self'/.test(csp));
+    check("page declares referrer: no-referrer",
+      await page.evaluate(() => document.querySelector('meta[name="referrer"]')?.content === "no-referrer"));
+    const violations = await page.evaluate(() => window.__csp);
+    check("no Content-Security-Policy violations", !violations.length, violations.join(" | "));
+    const extra = [...foreign].filter((h) => !["commons.wikimedia.org", "upload.wikimedia.org"].includes(h));
+    check("no requests to trackers, font services or other third parties", !extra.length, extra.join(", "));
+    const fonts = await page.evaluate(async () => { await document.fonts.ready;
+      return document.fonts.check('20px "Noto Serif Gurmukhi"', "ੴ") && document.fonts.check('italic 20px "EB Garamond"', "Sikhi"); });
+    check("Gurmukhi and English fonts load from this site", fonts);
+    await ctx.close();
+  }
+  {
+    // Feed the page hostile data and make sure none of it can run or send visitors elsewhere.
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const page = await ctx.newPage();
+    const evilText = '<img src=x onerror="window.__pwned=1">';
+    const g = JSON.parse(JSON.stringify(gallery));
+    g.items.forEach((it, i) => {
+      if (i % 3 === 0) { it.local = "javascript:window.__pwned=1"; it.source_page = "javascript:window.__pwned=1"; }
+      if (i % 3 === 1) { it.local = "https://evil.example/x.jpg"; it.source_page = "https://evil.example/"; }
+      if (i % 3 === 2) { it.local = "gallery/pothi/../../x.jpg"; it.commons = '"><svg onload=window.__pwned=1>'; delete it.source_page; }
+      it.pa = evilText; it.en = evilText;
+    });
+    const a = JSON.parse(JSON.stringify(assets));
+    a.collections.forEach((c) => c.items.forEach((it, i) => {
+      it.preview = i % 2 ? "javascript:window.__pwned=1" : "https://evil.example/x.svg";
+      it.files.forEach((f) => { f.path = i % 2 ? "javascript:window.__pwned=1" : "//evil.example/x.svg"; });
+      it.pa = evilText;
+    }));
+    await page.route("**/site/data/gallery.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(g) }));
+    await page.route("**/site/data/assets.json", (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify(a) }));
+    await page.route(/^https?:\/\/(?!localhost)/, (r) => r.abort());
+    await page.goto(URL);
+    await page.waitForSelector(".carousel .card");
+    await page.waitForSelector(".asset");
+    for (let i = 0; i < 3; i++) {
+      await openCard(page, page.locator(".card:not([data-copy])").nth(i));
+      await page.keyboard.press("Escape");
+      await page.waitForTimeout(200);
+    }
+    const bad = await page.evaluate(() => [...document.querySelectorAll("[src], [href]")]
+      .map((e) => e.getAttribute("src") || e.getAttribute("href"))
+      .filter((u) => /^\s*javascript:/i.test(u) || /evil\.example/.test(u) || /\.\./.test(u)));
+    check("hostile data: no javascript:, foreign or ../ URLs reach the page", !bad.length, bad.slice(0, 3).join(" | "));
+    const injected = await page.evaluate(() => !!window.__pwned || document.querySelectorAll("[onerror], [onload], svg script").length);
+    check("hostile data: titles are shown as text and never run as code", !injected);
     await ctx.close();
   }
 

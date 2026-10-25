@@ -47,3 +47,7 @@ The original manuscripts are public-domain cultural heritage. The **photographs 
 **no source photographs or scans**, only original vector reconstructions and line tracings. See [SOURCES.md](SOURCES.md).
 
 *This summary is for convenience and is not legal advice. The license texts in `LICENSES/` are what bind.*
+
+## Web fonts
+`site/fonts/` holds Noto Serif Gurmukhi and EB Garamond, self-hosted from Fontsource 5.3.0. Both are under the
+SIL Open Font License 1.1; the licence texts are in `site/fonts/OFL-*.txt`.

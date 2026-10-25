@@ -30,12 +30,20 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import strip_metadata  # noqa: E402  (sibling script)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATALOGUE = os.path.join(ROOT, "site", "data", "gallery.json")
 GALLERY = os.path.join(ROOT, "gallery")
 WIDTH = 960           # a standard Wikimedia thumbnail width
 PAUSE = 3.0           # seconds between requests
+MAX_BYTES = 15 * 1024 * 1024   # refuse anything larger than this
+ALLOWED_HOSTS = {"commons.wikimedia.org", "upload.wikimedia.org"}
+SAFE_ID = re.compile(r"^[a-z0-9-]{1,64}$")
+MAGIC = {".jpg": b"\xff\xd8\xff", ".jpeg": b"\xff\xd8\xff", ".png": b"\x89PNG\r\n\x1a\n"}
 UA = "SikhiSoul-gallery/1.2 (https://github.com/arvinderss/sikhisoul; heritage archive)"
 
 # Licence templates we accept, matched against the wikitext.
@@ -50,12 +58,20 @@ NON_FREE = re.compile(r"\{\{\s*(non-free|fair use|copyvio|delete|nld)", re.I)
 
 def get(url, tries=6):
     """GET with polite retries on 429/5xx, honouring Retry-After."""
+    if urllib.parse.urlsplit(url).scheme != "https" or urllib.parse.urlsplit(url).hostname not in ALLOWED_HOSTS:
+        raise ValueError(f"refusing to fetch from outside Wikimedia: {url}")
     wait = 10
     for attempt in range(tries):
         req = urllib.request.Request(url, headers={"User-Agent": UA})
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
-                return r.read()
+                # Redirects must also stay on Wikimedia, and the size is capped.
+                if urllib.parse.urlsplit(r.geturl()).hostname not in ALLOWED_HOSTS:
+                    raise ValueError(f"redirected outside Wikimedia: {r.geturl()}")
+                data = r.read(MAX_BYTES + 1)
+                if len(data) > MAX_BYTES:
+                    raise ValueError(f"file larger than {MAX_BYTES // 2**20} MB: {url}")
+                return data
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504) or attempt == tries - 1:
                 raise
@@ -122,6 +138,9 @@ def main():
     for item in cat["items"]:
         if item.get("local") and not refresh:
             continue
+        if not SAFE_ID.match(item.get("id", "")) or item.get("category") not in cat["categories"]:
+            print(f"  skipped (id must be a-z, 0-9 and '-', category must be known): {item.get('id')!r}", flush=True)
+            review.append(str(item.get("id"))); continue
         name = canonical(item["commons"])
         raw_url = "https://commons.wikimedia.org/w/index.php?" + urllib.parse.urlencode({"title": "File:" + name, "action": "raw"})
         try:
@@ -148,11 +167,15 @@ def main():
                 # Image narrower than the thumbnail width: take the original instead.
                 data = get(original_url(name))
                 ext = os.path.splitext(name)[1].lower()
+            if ext not in MAGIC or not data.startswith(MAGIC[ext]):
+                print(f"  review needed (not a real JPEG/PNG): {item['id']}", flush=True)
+                review.append(item["id"]); save(cat); continue
             folder = os.path.join(GALLERY, item["category"])
             os.makedirs(folder, exist_ok=True)
             dest = os.path.join(folder, item["id"] + ext)
             with open(dest, "wb") as fh:
                 fh.write(data)
+            strip_metadata.strip(Path(dest))   # drop EXIF/XMP/GPS; the picture itself is unchanged
             item["local"] = os.path.relpath(dest, ROOT).replace(os.sep, "/")
         save(cat)
         print(f"  ok  {item['local']}  [{licence}]", flush=True)

@@ -60,9 +60,16 @@ We would love to keep this treasury growing and up to date, guided by the ideas 
 ```bash
 python tools/build_site_data.py      # after adding/changing anything in assets/
 python tools/fetch_gallery.py        # download gallery images + licences from Wikimedia Commons
+python tools/strip_metadata.py       # remove hidden EXIF/XMP/GPS from gallery images
+python tools/security_check.py       # the security & content-safety checks
+npm test                             # browser tests (needs: npm ci && npx playwright install chromium)
 python -m http.server                # preview at http://localhost:8000
 ```
-Details: [docs/SITE.md](docs/SITE.md) · Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Sources: [SOURCES.md](SOURCES.md)
+Details: [docs/SITE.md](docs/SITE.md) · Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Sources: [SOURCES.md](SOURCES.md) · Security: [SECURITY.md](SECURITY.md)
+
+**ਸੁਰੱਖਿਆ · Safety:** the site uses no trackers, cookies or outside fonts. A security scan runs automatically
+every week and on every change ([SECURITY.md](SECURITY.md)). Please report security problems privately via
+*Security → Report a vulnerability*.
 
 ---
 ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ ॥ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਹਿ ॥

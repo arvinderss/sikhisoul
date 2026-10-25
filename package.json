@@ -5,9 +5,13 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "serve": "python3 -m http.server 8000",
-    "test": "node tests/site.test.js"
+    "test": "node tests/site.test.js",
+    "security": "python3 tools/security_check.py"
   },
   "devDependencies": {
-    "playwright": "^1.48.0"
+    "playwright": "1.64.1"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
