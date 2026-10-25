@@ -686,7 +686,12 @@
       ],
       "commons": "Amritsar Overhead Panorama View Artwork circa 1860's.jpg",
       "pa": "ਸ੍ਰੀ ਅੰਮ੍ਰਿਤਸਰ ਦਾ ਦ੍ਰਿਸ਼ — ਲਗਭਗ ੧੮੬੦ ਈ.",
-      "en": "Panorama of Sri Amritsar — c. 1860s"
+      "en": "Panorama of Sri Amritsar — c. 1860s",
+      "licence": "PD-art-100",
+      "author": "Artist unknown. Photograph by Zulfiqar Ali Kalhoro.",
+      "date": "ca.1850–1890",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Amritsar_Overhead_Panorama_View_Artwork_circa_1860%27s.jpg",
+      "local": "gallery/itihas/amritsar-1860s.jpg"
     },
     {
       "id": "hari-singh-nalwa-folio",
@@ -695,7 +700,12 @@
       "gurus": [],
       "commons": "Detail of a Gurmukhi folio related to Hari Singh Nalwa.jpg",
       "pa": "ਸਰਦਾਰ ਹਰੀ ਸਿੰਘ ਨਲੂਆ ਨਾਲ ਸਬੰਧਤ ਗੁਰਮੁਖੀ ਪੱਤਰ",
-      "en": "Gurmukhi folio relating to Sardar Hari Singh Nalwa (detail)"
+      "en": "Gurmukhi folio relating to Sardar Hari Singh Nalwa (detail)",
+      "licence": "PD-scan",
+      "author": "unknown|author",
+      "date": "likely circa 19th century",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Detail_of_a_Gurmukhi_folio_related_to_Hari_Singh_Nalwa.jpg",
+      "local": "gallery/itihas/hari-singh-nalwa-folio.jpg"
     },
     {
       "id": "panth-prakash",
@@ -704,7 +714,12 @@
       "gurus": [],
       "commons": "Ending folio of an early edition of Giani Gian Singh's 'Panth Prakash'.jpg",
       "pa": "‘ਪੰਥ ਪ੍ਰਕਾਸ਼’ (ਗਿਆਨੀ ਗਿਆਨ ਸਿੰਘ) ਦਾ ਅੰਤਲਾ ਪੱਤਰਾ",
-      "en": "Closing folio of an early edition of Giani Gian Singh's ‘Panth Prakash’"
+      "en": "Closing folio of an early edition of Giani Gian Singh's ‘Panth Prakash’",
+      "licence": "PD-scan",
+      "author": "Giani Gian Singh",
+      "date": "circa late 19th century",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ending_folio_of_an_early_edition_of_Giani_Gian_Singh%27s_%27Panth_Prakash%27.jpg",
+      "local": "gallery/itihas/panth-prakash.jpg"
     }
   ]
 }
