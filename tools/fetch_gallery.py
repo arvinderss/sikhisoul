@@ -8,17 +8,20 @@ page back into gallery.json.
     python tools/fetch_gallery.py            # fetch anything not yet downloaded
     python tools/fetch_gallery.py --refresh  # re-check licences for every item
 
-Only images whose Commons licence is public domain or a Creative Commons
-licence are downloaded. Anything else is left as a remote link and reported,
-so a person can review it before it is added.
+How it works (deliberately light on Wikimedia's servers):
+  * licence, author and date come from the file page's raw wikitext
+    (index.php?action=raw). It is cheap and is not subject to the API's rate limit for busy IPs.
+  * the image itself is a standard-width thumbnail from upload.wikimedia.org
+    (Wikimedia only serves certain widths; 960 px is one of them).
+  * requests are spaced out, HTTP 429/5xx are retried honouring Retry-After,
+    and gallery.json is saved after every image, so it is safe to stop and re-run.
 
-Wikimedia rate-limits busy clients, so this script asks for all metadata in
-batches of 50, waits between downloads, retries politely on HTTP 429, and
-saves gallery.json after every image (safe to stop and re-run).
+Only public-domain and Creative Commons (CC0, BY, BY-SA) files are downloaded.
+Anything else is left as a remote link and listed for a person to review.
 
-Needs network access to commons.wikimedia.org and upload.wikimedia.org.
 Standard library only.
 """
+import hashlib
 import json
 import os
 import re
@@ -31,21 +34,23 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATALOGUE = os.path.join(ROOT, "site", "data", "gallery.json")
 GALLERY = os.path.join(ROOT, "gallery")
-API = "https://commons.wikimedia.org/w/api.php"
-WIDTH = 1200          # pixel width of the copy we keep
-PAUSE = 2.0           # seconds between downloads
-UA = "SikhiSoul-gallery/1.1 (https://github.com/arvinderss/sikhisoul; heritage archive)"
+WIDTH = 960           # a standard Wikimedia thumbnail width
+PAUSE = 3.0           # seconds between requests
+UA = "SikhiSoul-gallery/1.2 (https://github.com/arvinderss/sikhisoul; heritage archive)"
 
-ALLOWED = re.compile(r"^(public domain|pd|cc0|cc[- ]by(-sa)?[- ]\d)", re.I)
-
-
-def strip_html(s):
-    return re.sub(r"<[^>]+>", "", s or "").strip()
+# Licence templates we accept, matched against the wikitext.
+FREE = [
+    (re.compile(r"\{\{\s*(PD-[\w-]+)", re.I), None),
+    (re.compile(r"\{\{\s*(CC-zero|CC0)", re.I), "CC0"),
+    (re.compile(r"(cc-by-sa-[\d.]+(?:-[\w,-]+)?)", re.I), None),
+    (re.compile(r"(cc-by-[\d.]+(?:-[\w,-]+)?)", re.I), None),
+]
+NON_FREE = re.compile(r"\{\{\s*(non-free|fair use|copyvio|delete|nld)", re.I)
 
 
 def get(url, tries=6):
     """GET with polite retries on 429/5xx, honouring Retry-After."""
-    wait = 5
+    wait = 10
     for attempt in range(tries):
         req = urllib.request.Request(url, headers={"User-Agent": UA})
         try:
@@ -54,31 +59,55 @@ def get(url, tries=6):
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504) or attempt == tries - 1:
                 raise
-            wait = int(e.headers.get("Retry-After") or wait)
-            print(f"    busy ({e.code}); waiting {wait}s")
+            wait = max(int(e.headers.get("Retry-After") or 0), wait)
+            print(f"    busy ({e.code}); waiting {wait}s", flush=True)
             time.sleep(wait)
-            wait = min(wait * 2, 120)
+            wait = min(wait * 2, 180)
 
 
-def fetch_metadata(titles):
-    """title -> imageinfo dict, asking Commons for up to 50 titles at a time."""
-    out = {}
-    for i in range(0, len(titles), 50):
-        chunk = titles[i:i + 50]
-        params = {
-            "action": "query", "format": "json", "formatversion": "2",
-            "titles": "|".join("File:" + t for t in chunk),
-            "prop": "imageinfo", "iiprop": "url|extmetadata|mime", "iiurlwidth": str(WIDTH),
-        }
-        data = json.loads(get(API + "?" + urllib.parse.urlencode(params)))
-        # Commons normalises titles (e.g. underscores); map back to what we asked for.
-        norm = {n["to"]: n["from"] for n in data["query"].get("normalized", [])}
-        for page in data["query"]["pages"]:
-            asked = norm.get(page["title"], page["title"])[len("File:"):]
-            if page.get("imageinfo"):
-                out[asked] = page["imageinfo"][0]
-        time.sleep(PAUSE)
-    return out
+def canonical(name):
+    """Commons file name as used in URLs: spaces -> underscores, first letter upper-case."""
+    name = name.strip().replace(" ", "_")
+    return name[:1].upper() + name[1:]
+
+
+def thumb_url(name, width=WIDTH):
+    n = canonical(name)
+    h = hashlib.md5(n.encode("utf-8")).hexdigest()
+    q = urllib.parse.quote(n)
+    url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{h[0]}/{h[:2]}/{q}/{width}px-{q}"
+    if n.lower().endswith((".tif", ".tiff", ".pdf")):
+        url += ".jpg"
+    return url
+
+
+def original_url(name):
+    n = canonical(name)
+    h = hashlib.md5(n.encode("utf-8")).hexdigest()
+    return f"https://upload.wikimedia.org/wikipedia/commons/{h[0]}/{h[:2]}/{urllib.parse.quote(n)}"
+
+
+def field(wikitext, key):
+    m = re.search(r"\|\s*" + key + r"\s*=\s*(.*?)(?=\n\s*\||\n\}\})", wikitext, re.S | re.I)
+    if not m:
+        return ""
+    text = re.sub(r"\{\{\s*(?:en|pa)\s*\|\s*(?:1=)?", "", m.group(1))
+    text = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", r"\1", text)      # [[link|label]] -> label
+    text = re.sub(r"\[https?://\S+\s*([^\]]*)\]", r"\1", text)           # [url label] -> label
+    text = re.sub(r"\{\{|\}\}|'''|''|<[^>]+>", "", text)
+    return " ".join(text.split())[:200]
+
+
+def licence_of(wikitext):
+    if NON_FREE.search(wikitext):
+        return ""
+    found = []
+    for rx, label in FREE:
+        for m in rx.finditer(wikitext):
+            lic = label or m.group(1)
+            if lic.upper() not in (f.upper() for f in found):
+                found.append(lic)
+    return ", ".join(found)
 
 
 def save(cat):
@@ -89,38 +118,47 @@ def save(cat):
 def main():
     refresh = "--refresh" in sys.argv
     cat = json.load(open(CATALOGUE, encoding="utf-8"))
-    todo = [it for it in cat["items"] if refresh or not it.get("local")]
-    meta = fetch_metadata([it["commons"] for it in todo])
     review = []
-    for item in todo:
-        info = meta.get(item["commons"])
-        if not info:
-            print(f"  not found on Commons: {item['commons']}")
-            review.append(item["id"]); continue
-        em = info.get("extmetadata", {})
-        licence = strip_html(em.get("LicenseShortName", {}).get("value", ""))
-        item["licence"] = licence
-        item["author"] = strip_html(em.get("Artist", {}).get("value", ""))[:200]
-        item["date"] = strip_html(em.get("DateTimeOriginal", {}).get("value", ""))[:80]
-        item["source_page"] = info.get("descriptionurl", "")
-        if not ALLOWED.match(licence):
-            print(f"  review needed ({licence or 'no licence'}): {item['id']}")
-            review.append(item["id"]); save(cat); continue
+    for item in cat["items"]:
         if item.get("local") and not refresh:
             continue
-        thumb = info.get("thumburl") or info["url"]
-        ext = os.path.splitext(urllib.parse.urlparse(thumb).path)[1].lower() or ".jpg"
-        folder = os.path.join(GALLERY, item["category"])
-        os.makedirs(folder, exist_ok=True)
-        dest = os.path.join(folder, item["id"] + ext)
-        with open(dest, "wb") as fh:
-            fh.write(get(thumb))
-        item["local"] = os.path.relpath(dest, ROOT).replace(os.sep, "/")
+        name = canonical(item["commons"])
+        raw_url = "https://commons.wikimedia.org/w/index.php?" + urllib.parse.urlencode({"title": "File:" + name, "action": "raw"})
+        try:
+            wikitext = get(raw_url).decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            print(f"  not found ({e.code}): {item['commons']}", flush=True)
+            review.append(item["id"]); continue
+        time.sleep(PAUSE)
+
+        licence = licence_of(wikitext)
+        item["licence"] = licence
+        item["author"] = field(wikitext, "author")
+        item["date"] = field(wikitext, "date")
+        item["source_page"] = "https://commons.wikimedia.org/wiki/File:" + urllib.parse.quote(name)
+        if not licence:
+            print(f"  review needed (no free licence found): {item['id']}", flush=True)
+            review.append(item["id"]); save(cat); continue
+
+        if not (item.get("local") and not refresh):
+            try:
+                data = get(thumb_url(name))
+                ext = ".jpg" if name.lower().endswith((".tif", ".tiff", ".pdf")) else os.path.splitext(name)[1].lower()
+            except urllib.error.HTTPError:
+                # Image narrower than the thumbnail width: take the original instead.
+                data = get(original_url(name))
+                ext = os.path.splitext(name)[1].lower()
+            folder = os.path.join(GALLERY, item["category"])
+            os.makedirs(folder, exist_ok=True)
+            dest = os.path.join(folder, item["id"] + ext)
+            with open(dest, "wb") as fh:
+                fh.write(data)
+            item["local"] = os.path.relpath(dest, ROOT).replace(os.sep, "/")
         save(cat)
-        print(f"  ok  {item['local']}  [{licence}]")
+        print(f"  ok  {item['local']}  [{licence}]", flush=True)
         time.sleep(PAUSE)
     save(cat)
-    print(f"done; {len(review)} item(s) need review: {', '.join(review) or '-'}")
+    print(f"done; {len(review)} item(s) need review: {', '.join(review) or '-'}", flush=True)
 
 
 if __name__ == "__main__":
