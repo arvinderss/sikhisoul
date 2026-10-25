@@ -1,0 +1,422 @@
+[
+ {
+  "key": "bur_a01",
+  "title": "Lobed cartouches, knotted",
+  "source": "Burhanpuri p.9 (index)",
+  "tile": "tiles/bur_a01.svg",
+  "strip": "strips/bur_a01.svg",
+  "motif": null,
+  "w": 120,
+  "h": 80
+ },
+ {
+  "key": "bur_a02",
+  "title": "Long panels, pearl knots",
+  "source": "Burhanpuri p.50",
+  "tile": "tiles/bur_a02.svg",
+  "strip": "strips/bur_a02.svg",
+  "motif": null,
+  "w": 140,
+  "h": 80
+ },
+ {
+  "key": "bur_a03",
+  "title": "Panels with hourglass dividers",
+  "source": "Burhanpuri p.54",
+  "tile": "tiles/bur_a03.svg",
+  "strip": "strips/bur_a03.svg",
+  "motif": null,
+  "w": 110,
+  "h": 80
+ },
+ {
+  "key": "bur_a04",
+  "title": "Roundel & long cartouche",
+  "source": "Burhanpuri p.100 / p.209",
+  "tile": "tiles/bur_a04.svg",
+  "strip": "strips/bur_a04.svg",
+  "motif": null,
+  "w": 170,
+  "h": 80
+ },
+ {
+  "key": "bur_a05",
+  "title": "Pointed cartouches",
+  "source": "Burhanpuri p.134 / p.161",
+  "tile": "tiles/bur_a05.svg",
+  "strip": "strips/bur_a05.svg",
+  "motif": null,
+  "w": 130,
+  "h": 80
+ },
+ {
+  "key": "bur_a06",
+  "title": "Rounded panels, pink rules",
+  "source": "Burhanpuri p.240",
+  "tile": "tiles/bur_a06.svg",
+  "strip": "strips/bur_a06.svg",
+  "motif": null,
+  "w": 120,
+  "h": 80
+ },
+ {
+  "key": "bur_a07",
+  "title": "Gold with yellow bobbins",
+  "source": "Burhanpuri p.261",
+  "tile": "tiles/bur_a07.svg",
+  "strip": "strips/bur_a07.svg",
+  "motif": null,
+  "w": 120,
+  "h": 80
+ },
+ {
+  "key": "bur_a08",
+  "title": "Lozenges with florets",
+  "source": "Burhanpuri p.611",
+  "tile": "tiles/bur_a08.svg",
+  "strip": "strips/bur_a08.svg",
+  "motif": null,
+  "w": 64,
+  "h": 80
+ },
+ {
+  "key": "bur_a09",
+  "title": "Ring & oval chain, red knots",
+  "source": "Burhanpuri p.629",
+  "tile": "tiles/bur_a09.svg",
+  "strip": "strips/bur_a09.svg",
+  "motif": null,
+  "w": 150,
+  "h": 80
+ },
+ {
+  "key": "bur_a10",
+  "title": "Panels & bobbins, black-white chain",
+  "source": "Burhanpuri p.647 / p.650",
+  "tile": "tiles/bur_a10.svg",
+  "strip": "strips/bur_a10.svg",
+  "motif": null,
+  "w": 110,
+  "h": 80
+ },
+ {
+  "key": "bur_b01",
+  "title": "Five-petal roses in roundels",
+  "source": "Burhanpuri p.290",
+  "tile": "tiles/bur_b01.svg",
+  "strip": "strips/bur_b01.svg",
+  "motif": "motifs/bur_b01_motif.svg",
+  "w": 76,
+  "h": 80
+ },
+ {
+  "key": "bur_b02",
+  "title": "Lilac bells with leaf sprays",
+  "source": "Burhanpuri p.295",
+  "tile": "tiles/bur_b02.svg",
+  "strip": "strips/bur_b02.svg",
+  "motif": "motifs/bur_b02_motif.svg",
+  "w": 90,
+  "h": 80
+ },
+ {
+  "key": "bur_b03",
+  "title": "Pink tulips on leafy stalks",
+  "source": "Burhanpuri p.297 / p.559",
+  "tile": "tiles/bur_b03.svg",
+  "strip": "strips/bur_b03.svg",
+  "motif": "motifs/bur_b03_motif.svg",
+  "w": 120,
+  "h": 80
+ },
+ {
+  "key": "bur_b04",
+  "title": "Blue irises on undulating stem",
+  "source": "Burhanpuri p.304 / p.312",
+  "tile": "tiles/bur_b04.svg",
+  "strip": "strips/bur_b04.svg",
+  "motif": "motifs/bur_b04_motif.svg",
+  "w": 96,
+  "h": 80
+ },
+ {
+  "key": "bur_b05",
+  "title": "Violet flowers on scrolling vine",
+  "source": "Burhanpuri p.320",
+  "tile": "tiles/bur_b05.svg",
+  "strip": "strips/bur_b05.svg",
+  "motif": null,
+  "w": 100,
+  "h": 80
+ },
+ {
+  "key": "bur_b06",
+  "title": "Red tulip chain",
+  "source": "Burhanpuri p.329",
+  "tile": "tiles/bur_b06.svg",
+  "strip": "strips/bur_b06.svg",
+  "motif": null,
+  "w": 70,
+  "h": 80
+ },
+ {
+  "key": "bur_b07",
+  "title": "Kashmiri ogee lattice, yellow & blue",
+  "source": "Burhanpuri p.337 / p.379",
+  "tile": "tiles/bur_b07.svg",
+  "strip": "strips/bur_b07.svg",
+  "motif": null,
+  "w": 72,
+  "h": 80
+ },
+ {
+  "key": "bur_b08",
+  "title": "Blossoms on yellow ground",
+  "source": "Burhanpuri p.341",
+  "tile": "tiles/bur_b08.svg",
+  "strip": "strips/bur_b08.svg",
+  "motif": null,
+  "w": 64,
+  "h": 80
+ },
+ {
+  "key": "bur_b09",
+  "title": "Pink rosettes on vine with leaves",
+  "source": "Burhanpuri p.345",
+  "tile": "tiles/bur_b09.svg",
+  "strip": "strips/bur_b09.svg",
+  "motif": "motifs/bur_b09_motif.svg",
+  "w": 64,
+  "h": 80
+ },
+ {
+  "key": "bur_b10",
+  "title": "Blue florets in ogival frames",
+  "source": "Burhanpuri p.355",
+  "tile": "tiles/bur_b10.svg",
+  "strip": "strips/bur_b10.svg",
+  "motif": null,
+  "w": 60,
+  "h": 80
+ },
+ {
+  "key": "bur_b11",
+  "title": "Red poppies, sparse sprigs",
+  "source": "Burhanpuri p.360",
+  "tile": "tiles/bur_b11.svg",
+  "strip": "strips/bur_b11.svg",
+  "motif": "motifs/bur_b11_motif.svg",
+  "w": 120,
+  "h": 80
+ },
+ {
+  "key": "bur_b12",
+  "title": "Gold-on-gold arabesque",
+  "source": "Burhanpuri p.369",
+  "tile": "tiles/bur_b12.svg",
+  "strip": "strips/bur_b12.svg",
+  "motif": null,
+  "w": 90,
+  "h": 80
+ },
+ {
+  "key": "bur_b13",
+  "title": "Red roundels & acanthus curls",
+  "source": "Burhanpuri p.384",
+  "tile": "tiles/bur_b13.svg",
+  "strip": "strips/bur_b13.svg",
+  "motif": null,
+  "w": 64,
+  "h": 80
+ },
+ {
+  "key": "bur_b14",
+  "title": "Tulip at tip of sweeping leaf",
+  "source": "Burhanpuri p.395 / p.407 / p.450",
+  "tile": "tiles/bur_b14.svg",
+  "strip": "strips/bur_b14.svg",
+  "motif": null,
+  "w": 110,
+  "h": 80
+ },
+ {
+  "key": "bur_b15",
+  "title": "Pink buds with leaf pairs",
+  "source": "Burhanpuri p.415 / p.465",
+  "tile": "tiles/bur_b15.svg",
+  "strip": "strips/bur_b15.svg",
+  "motif": null,
+  "w": 96,
+  "h": 80
+ },
+ {
+  "key": "bur_b16",
+  "title": "Pomegranate buds with pearls",
+  "source": "Burhanpuri p.420",
+  "tile": "tiles/bur_b16.svg",
+  "strip": "strips/bur_b16.svg",
+  "motif": "motifs/bur_b16_motif.svg",
+  "w": 64,
+  "h": 80
+ },
+ {
+  "key": "bur_b17",
+  "title": "Large lily sprays",
+  "source": "Burhanpuri p.431",
+  "tile": "tiles/bur_b17.svg",
+  "strip": "strips/bur_b17.svg",
+  "motif": null,
+  "w": 130,
+  "h": 80
+ },
+ {
+  "key": "bur_b18",
+  "title": "Grape clusters & vine leaves",
+  "source": "Burhanpuri p.440 / p.527",
+  "tile": "tiles/bur_b18.svg",
+  "strip": "strips/bur_b18.svg",
+  "motif": "motifs/bur_b18_motif.svg",
+  "w": 74,
+  "h": 80
+ },
+ {
+  "key": "bur_b19",
+  "title": "Red rosettes in leaf lozenges",
+  "source": "Burhanpuri p.455",
+  "tile": "tiles/bur_b19.svg",
+  "strip": "strips/bur_b19.svg",
+  "motif": null,
+  "w": 96,
+  "h": 80
+ },
+ {
+  "key": "bur_b20",
+  "title": "Red roses on wavy vine",
+  "source": "Burhanpuri p.471",
+  "tile": "tiles/bur_b20.svg",
+  "strip": "strips/bur_b20.svg",
+  "motif": null,
+  "w": 70,
+  "h": 80
+ },
+ {
+  "key": "bur_b21",
+  "title": "Star flowers & leaves",
+  "source": "Burhanpuri p.480",
+  "tile": "tiles/bur_b21.svg",
+  "strip": "strips/bur_b21.svg",
+  "motif": null,
+  "w": 74,
+  "h": 80
+ },
+ {
+  "key": "bur_b22",
+  "title": "Pink flowers in vine roundels",
+  "source": "Burhanpuri p.488 / p.504 / p.510",
+  "tile": "tiles/bur_b22.svg",
+  "strip": "strips/bur_b22.svg",
+  "motif": "motifs/bur_b22_motif.svg",
+  "w": 70,
+  "h": 80
+ },
+ {
+  "key": "bur_b23",
+  "title": "Almond buds with pointed sepals",
+  "source": "Burhanpuri p.496",
+  "tile": "tiles/bur_b23.svg",
+  "strip": "strips/bur_b23.svg",
+  "motif": null,
+  "w": 100,
+  "h": 80
+ },
+ {
+  "key": "bur_b24",
+  "title": "Purple lilies with leaves",
+  "source": "Burhanpuri p.520",
+  "tile": "tiles/bur_b24.svg",
+  "strip": "strips/bur_b24.svg",
+  "motif": null,
+  "w": 84,
+  "h": 80
+ },
+ {
+  "key": "bur_b25",
+  "title": "Blue & white blossoms on vine",
+  "source": "Burhanpuri p.535",
+  "tile": "tiles/bur_b25.svg",
+  "strip": "strips/bur_b25.svg",
+  "motif": null,
+  "w": 76,
+  "h": 80
+ },
+ {
+  "key": "bur_b26",
+  "title": "Rosettes & acanthus, blue hearts",
+  "source": "Burhanpuri p.545",
+  "tile": "tiles/bur_b26.svg",
+  "strip": "strips/bur_b26.svg",
+  "motif": null,
+  "w": 72,
+  "h": 80
+ },
+ {
+  "key": "bur_b27",
+  "title": "Alternating pink rosettes & red florets",
+  "source": "Burhanpuri p.552 / p.556",
+  "tile": "tiles/bur_b27.svg",
+  "strip": "strips/bur_b27.svg",
+  "motif": null,
+  "w": 100,
+  "h": 80
+ },
+ {
+  "key": "bur_b28",
+  "title": "Pinecones with red flowers",
+  "source": "Burhanpuri p.567",
+  "tile": "tiles/bur_b28.svg",
+  "strip": "strips/bur_b28.svg",
+  "motif": null,
+  "w": 70,
+  "h": 80
+ },
+ {
+  "key": "bur_b29",
+  "title": "Serrated feather leaves",
+  "source": "Burhanpuri p.575",
+  "tile": "tiles/bur_b29.svg",
+  "strip": "strips/bur_b29.svg",
+  "motif": "motifs/bur_b29_motif.svg",
+  "w": 110,
+  "h": 80
+ },
+ {
+  "key": "bur_b30",
+  "title": "Lotus buds with leaf diamonds",
+  "source": "Burhanpuri p.585",
+  "tile": "tiles/bur_b30.svg",
+  "strip": "strips/bur_b30.svg",
+  "motif": "motifs/bur_b30_motif.svg",
+  "w": 110,
+  "h": 80
+ },
+ {
+  "key": "bur_b31",
+  "title": "Red tulips on running vine",
+  "source": "Burhanpuri p.592",
+  "tile": "tiles/bur_b31.svg",
+  "strip": "strips/bur_b31.svg",
+  "motif": null,
+  "w": 80,
+  "h": 80
+ },
+ {
+  "key": "bur_b32",
+  "title": "Lotus fans with leaf pairs",
+  "source": "Burhanpuri p.599",
+  "tile": "tiles/bur_b32.svg",
+  "strip": "strips/bur_b32.svg",
+  "motif": "motifs/bur_b32_motif.svg",
+  "w": 120,
+  "h": 80
+ }
+]

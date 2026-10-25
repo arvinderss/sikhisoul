@@ -1,0 +1,31 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 | (C) 2026 Sikh Manuscript Revival contributors | https://creativecommons.org/licenses/by-sa/4.0/ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 320 260">
+          <rect x="0" y="0" width="320" height="260" fill="#ECE4CF"></rect>
+          <rect x="10" y="30" width="300" height="222" fill="none" stroke="#B23A24" stroke-width="1"></rect>
+          <rect x="14" y="34" width="292" height="214" fill="#23408E" stroke="#C39A3E" stroke-width="2"></rect>
+          <path d="M18 51 C30 41 42 61 54 51 S78 41 90 51 S114 61 126 51" fill="none" stroke="#C39A3E" stroke-width="1.8"></path>
+          <path d="M194 51 C206 41 218 61 230 51 S254 41 266 51 S290 61 302 51" fill="none" stroke="#C39A3E" stroke-width="1.8"></path>
+          <path d="M18 231 C30 221 42 241 54 231 S78 221 90 231 S114 241 126 231 S150 221 162 231 S186 241 198 231 S222 221 234 231 S258 241 270 231 S294 221 302 231" fill="none" stroke="#C39A3E" stroke-width="1.8"></path>
+          <path d="M31 68 C21 80 41 92 31 104 S21 128 31 140 S41 164 31 176 S21 200 31 214" fill="none" stroke="#C39A3E" stroke-width="1.8"></path>
+          <path d="M289 68 C279 80 299 92 289 104 S279 128 289 140 S299 164 289 176 S279 200 289 214" fill="none" stroke="#C39A3E" stroke-width="1.8"></path>
+          <circle cx="36" cy="46" r="2.5" fill="#E2C676"></circle>
+          <circle cx="72" cy="56" r="2.5" fill="#E2C676"></circle>
+          <circle cx="248" cy="46" r="2.5" fill="#E2C676"></circle>
+          <circle cx="284" cy="56" r="2.5" fill="#E2C676"></circle>
+          <circle cx="26" cy="122" r="2.5" fill="#E2C676"></circle>
+          <circle cx="294" cy="158" r="2.5" fill="#E2C676"></circle>
+          <circle cx="108" cy="236" r="2.5" fill="#E2C676"></circle>
+          <circle cx="216" cy="226" r="2.5" fill="#E2C676"></circle>
+          <path d="M160 4 L160 -2 M150 6 L146 0 M170 6 L174 0 M141 11 L134 6 M179 11 L186 6 M134 18 L126 15 M186 18 L194 15" stroke="#23408E" stroke-width="1"></path>
+          <path d="M126 34 Q142 12 160 8 Q178 12 194 34 Q178 56 160 60 Q142 56 126 34 Z" fill="#C39A3E" stroke="#7A5C1E" stroke-width="1"></path>
+          <path d="M160 22 L170 34 L160 46 L150 34 Z" fill="#23408E"></path>
+          <path d="M126 252 Q142 230 160 226 Q178 230 194 252 Q178 274 160 278 Q142 274 126 252 Z" fill="#C39A3E" stroke="#7A5C1E" stroke-width="1"></path>
+          <rect x="48" y="68" width="224" height="146" fill="#E2D3A8" stroke="#B23A24" stroke-width="2"></rect>
+          <rect x="52" y="72" width="216" height="138" fill="none" stroke="#C39A3E" stroke-width="1.5"></rect>
+          <rect x="64" y="86" width="192" height="5" fill="#8E7A52"></rect>
+          <rect x="64" y="104" width="160" height="5" fill="#B23A24"></rect>
+          <rect x="64" y="122" width="192" height="5" fill="#8E7A52"></rect>
+          <rect x="64" y="140" width="192" height="5" fill="#8E7A52"></rect>
+          <rect x="64" y="158" width="192" height="5" fill="#8E7A52"></rect>
+          <rect x="64" y="176" width="140" height="5" fill="#8E7A52"></rect>
+        </svg>

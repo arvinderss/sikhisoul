@@ -1,0 +1,1430 @@
+{
+ "generated_by": "tools/build_site_data.py",
+ "collections": [
+  {
+   "id": "01_borders_burhanpuri",
+   "pa": "ਹਾਸ਼ੀਏ — ਸੁਨਹਿਰੀ ਬੀੜ, ਬੁਰਹਾਨਪੁਰ",
+   "en": "Border designs — Burhanpuri saroop",
+   "items": [
+    {
+     "id": "bur_a01",
+     "pa": "ਹਾਸ਼ੀਆ ੧",
+     "en": "Lobed cartouches, knotted",
+     "note": "Burhanpuri p.9 (index)",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a01.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a01.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a01.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a02",
+     "pa": "ਹਾਸ਼ੀਆ ੨",
+     "en": "Long panels, pearl knots",
+     "note": "Burhanpuri p.50",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a02.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a02.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a02.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a03",
+     "pa": "ਹਾਸ਼ੀਆ ੩",
+     "en": "Panels with hourglass dividers",
+     "note": "Burhanpuri p.54",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a03.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a03.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a03.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a04",
+     "pa": "ਹਾਸ਼ੀਆ ੪",
+     "en": "Roundel & long cartouche",
+     "note": "Burhanpuri p.100 / p.209",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a04.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a04.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a04.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a05",
+     "pa": "ਹਾਸ਼ੀਆ ੫",
+     "en": "Pointed cartouches",
+     "note": "Burhanpuri p.134 / p.161",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a05.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a05.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a05.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a06",
+     "pa": "ਹਾਸ਼ੀਆ ੬",
+     "en": "Rounded panels, pink rules",
+     "note": "Burhanpuri p.240",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a06.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a06.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a06.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a07",
+     "pa": "ਹਾਸ਼ੀਆ ੭",
+     "en": "Gold with yellow bobbins",
+     "note": "Burhanpuri p.261",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a07.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a07.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a07.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a08",
+     "pa": "ਹਾਸ਼ੀਆ ੮",
+     "en": "Lozenges with florets",
+     "note": "Burhanpuri p.611",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a08.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a08.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a08.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a09",
+     "pa": "ਹਾਸ਼ੀਆ ੯",
+     "en": "Ring & oval chain, red knots",
+     "note": "Burhanpuri p.629",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a09.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a09.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a09.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_a10",
+     "pa": "ਹਾਸ਼ੀਆ ੧੦",
+     "en": "Panels & bobbins, black-white chain",
+     "note": "Burhanpuri p.647 / p.650",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_a10.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_a10.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_a10.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b01",
+     "pa": "ਹਾਸ਼ੀਆ ੧੧",
+     "en": "Five-petal roses in roundels",
+     "note": "Burhanpuri p.290",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b01.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b01.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b01.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b01_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b02",
+     "pa": "ਹਾਸ਼ੀਆ ੧੨",
+     "en": "Lilac bells with leaf sprays",
+     "note": "Burhanpuri p.295",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b02.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b02.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b02.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b02_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b03",
+     "pa": "ਹਾਸ਼ੀਆ ੧੩",
+     "en": "Pink tulips on leafy stalks",
+     "note": "Burhanpuri p.297 / p.559",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b03.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b03.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b03.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b03_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b04",
+     "pa": "ਹਾਸ਼ੀਆ ੧੪",
+     "en": "Blue irises on undulating stem",
+     "note": "Burhanpuri p.304 / p.312",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b04.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b04.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b04.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b04_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b05",
+     "pa": "ਹਾਸ਼ੀਆ ੧੫",
+     "en": "Violet flowers on scrolling vine",
+     "note": "Burhanpuri p.320",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b05.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b05.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b05.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b06",
+     "pa": "ਹਾਸ਼ੀਆ ੧੬",
+     "en": "Red tulip chain",
+     "note": "Burhanpuri p.329",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b06.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b06.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b06.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b07",
+     "pa": "ਹਾਸ਼ੀਆ ੧੭",
+     "en": "Kashmiri ogee lattice, yellow & blue",
+     "note": "Burhanpuri p.337 / p.379",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b07.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b07.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b07.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b08",
+     "pa": "ਹਾਸ਼ੀਆ ੧੮",
+     "en": "Blossoms on yellow ground",
+     "note": "Burhanpuri p.341",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b08.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b08.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b08.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b09",
+     "pa": "ਹਾਸ਼ੀਆ ੧੯",
+     "en": "Pink rosettes on vine with leaves",
+     "note": "Burhanpuri p.345",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b09.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b09.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b09.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b09_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b10",
+     "pa": "ਹਾਸ਼ੀਆ ੨੦",
+     "en": "Blue florets in ogival frames",
+     "note": "Burhanpuri p.355",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b10.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b10.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b10.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b11",
+     "pa": "ਹਾਸ਼ੀਆ ੨੧",
+     "en": "Red poppies, sparse sprigs",
+     "note": "Burhanpuri p.360",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b11.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b11.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b11.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b11_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b12",
+     "pa": "ਹਾਸ਼ੀਆ ੨੨",
+     "en": "Gold-on-gold arabesque",
+     "note": "Burhanpuri p.369",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b12.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b12.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b12.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b13",
+     "pa": "ਹਾਸ਼ੀਆ ੨੩",
+     "en": "Red roundels & acanthus curls",
+     "note": "Burhanpuri p.384",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b13.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b13.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b13.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b14",
+     "pa": "ਹਾਸ਼ੀਆ ੨੪",
+     "en": "Tulip at tip of sweeping leaf",
+     "note": "Burhanpuri p.395 / p.407 / p.450",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b14.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b14.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b14.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b15",
+     "pa": "ਹਾਸ਼ੀਆ ੨੫",
+     "en": "Pink buds with leaf pairs",
+     "note": "Burhanpuri p.415 / p.465",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b15.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b15.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b15.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b16",
+     "pa": "ਹਾਸ਼ੀਆ ੨੬",
+     "en": "Pomegranate buds with pearls",
+     "note": "Burhanpuri p.420",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b16.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b16.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b16.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b16_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b17",
+     "pa": "ਹਾਸ਼ੀਆ ੨੭",
+     "en": "Large lily sprays",
+     "note": "Burhanpuri p.431",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b17.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b17.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b17.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b18",
+     "pa": "ਹਾਸ਼ੀਆ ੨੮",
+     "en": "Grape clusters & vine leaves",
+     "note": "Burhanpuri p.440 / p.527",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b18.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b18.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b18.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b18_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b19",
+     "pa": "ਹਾਸ਼ੀਆ ੨੯",
+     "en": "Red rosettes in leaf lozenges",
+     "note": "Burhanpuri p.455",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b19.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b19.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b19.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b20",
+     "pa": "ਹਾਸ਼ੀਆ ੩੦",
+     "en": "Red roses on wavy vine",
+     "note": "Burhanpuri p.471",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b20.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b20.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b20.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b21",
+     "pa": "ਹਾਸ਼ੀਆ ੩੧",
+     "en": "Star flowers & leaves",
+     "note": "Burhanpuri p.480",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b21.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b21.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b21.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b22",
+     "pa": "ਹਾਸ਼ੀਆ ੩੨",
+     "en": "Pink flowers in vine roundels",
+     "note": "Burhanpuri p.488 / p.504 / p.510",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b22.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b22.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b22.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b22_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b23",
+     "pa": "ਹਾਸ਼ੀਆ ੩੩",
+     "en": "Almond buds with pointed sepals",
+     "note": "Burhanpuri p.496",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b23.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b23.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b23.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b24",
+     "pa": "ਹਾਸ਼ੀਆ ੩੪",
+     "en": "Purple lilies with leaves",
+     "note": "Burhanpuri p.520",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b24.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b24.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b24.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b25",
+     "pa": "ਹਾਸ਼ੀਆ ੩੫",
+     "en": "Blue & white blossoms on vine",
+     "note": "Burhanpuri p.535",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b25.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b25.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b25.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b26",
+     "pa": "ਹਾਸ਼ੀਆ ੩੬",
+     "en": "Rosettes & acanthus, blue hearts",
+     "note": "Burhanpuri p.545",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b26.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b26.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b26.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b27",
+     "pa": "ਹਾਸ਼ੀਆ ੩੭",
+     "en": "Alternating pink rosettes & red florets",
+     "note": "Burhanpuri p.552 / p.556",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b27.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b27.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b27.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b28",
+     "pa": "ਹਾਸ਼ੀਆ ੩੮",
+     "en": "Pinecones with red flowers",
+     "note": "Burhanpuri p.567",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b28.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b28.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b28.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b29",
+     "pa": "ਹਾਸ਼ੀਆ ੩੯",
+     "en": "Serrated feather leaves",
+     "note": "Burhanpuri p.575",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b29.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b29.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b29.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b29_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b30",
+     "pa": "ਹਾਸ਼ੀਆ ੪੦",
+     "en": "Lotus buds with leaf diamonds",
+     "note": "Burhanpuri p.585",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b30.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b30.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b30.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b30_motif.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b31",
+     "pa": "ਹਾਸ਼ੀਆ ੪੧",
+     "en": "Red tulips on running vine",
+     "note": "Burhanpuri p.592",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b31.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b31.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b31.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_b32",
+     "pa": "ਹਾਸ਼ੀਆ ੪੨",
+     "en": "Lotus fans with leaf pairs",
+     "note": "Burhanpuri p.599",
+     "preview": "assets/01_borders_burhanpuri/strips/bur_b32.svg",
+     "files": [
+      {
+       "label_pa": "ਪੱਟੀ",
+       "label_en": "strip",
+       "path": "assets/01_borders_burhanpuri/strips/bur_b32.svg"
+      },
+      {
+       "label_pa": "ਇਕਾਈ",
+       "label_en": "tile",
+       "path": "assets/01_borders_burhanpuri/tiles/bur_b32.svg"
+      },
+      {
+       "label_pa": "ਫੁੱਲ",
+       "label_en": "motif",
+       "path": "assets/01_borders_burhanpuri/motifs/bur_b32_motif.svg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "02_opening_illumination",
+   "pa": "ਆਰੰਭਕ ਪੱਤਰਿਆਂ ਦੀ ਚਿੱਤਰਕਾਰੀ",
+   "en": "Opening-folio illumination",
+   "items": [
+    {
+     "id": "bha_cartouche_band",
+     "pa": "ਲਾਜਵਰਦੀ ਪੱਟੀ ਵਿੱਚ ਬੇਲ-ਬੂਟੇ — ਇਕਾਈ",
+     "en": "Oval cartouche band — tile",
+     "note": "Bhanno MS p.70–71",
+     "preview": "assets/02_opening_illumination/bha_cartouche_band.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bha_cartouche_band.svg"
+      }
+     ]
+    },
+    {
+     "id": "bha_cartouche_band_strip",
+     "pa": "ਲਾਜਵਰਦੀ ਪੱਟੀ ਵਿੱਚ ਬੇਲ-ਬੂਟੇ — ਪੱਟੀ",
+     "en": "Oval cartouche band — strip",
+     "note": "Bhanno MS p.70–71",
+     "preview": "assets/02_opening_illumination/bha_cartouche_band_strip.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bha_cartouche_band_strip.svg"
+      }
+     ]
+    },
+    {
+     "id": "bha_kangura_band",
+     "pa": "ਕੰਗੂਰੇਦਾਰ ਹਾਸ਼ੀਆ — ਇਕਾਈ",
+     "en": "Kangura scalloped band — tile",
+     "note": "Bhanno MS p.70–71",
+     "preview": "assets/02_opening_illumination/bha_kangura_band.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bha_kangura_band.svg"
+      }
+     ]
+    },
+    {
+     "id": "bha_kangura_band_strip",
+     "pa": "ਕੰਗੂਰੇਦਾਰ ਹਾਸ਼ੀਆ — ਪੱਟੀ",
+     "en": "Kangura scalloped band — strip",
+     "note": "Bhanno MS p.70–71",
+     "preview": "assets/02_opening_illumination/bha_kangura_band_strip.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bha_kangura_band_strip.svg"
+      }
+     ]
+    },
+    {
+     "id": "bha_opening_frame_full",
+     "pa": "ਆਰੰਭਕ ਪੱਤਰੇ ਦਾ ਪੂਰਾ ਚੌਖਟਾ",
+     "en": "Full opening-page frame",
+     "note": "Bhanno MS p.70",
+     "preview": "assets/02_opening_illumination/bha_opening_frame_full.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bha_opening_frame_full.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_baluster_columns",
+     "pa": "ਥੰਮ੍ਹਾਂ ਦਾ ਜੋੜਾ",
+     "en": "Paired baluster columns",
+     "note": "Burhanpuri p.8",
+     "preview": "assets/02_opening_illumination/bur_baluster_columns.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_baluster_columns.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_cartouche_panel_h",
+     "pa": "ਲਾਜਵਰਦੀ ਤਖ਼ਤੀ (ਲੇਟਵੀਂ)",
+     "en": "Lapis panel with stepped cartouche (horizontal)",
+     "note": "Burhanpuri p.7",
+     "preview": "assets/02_opening_illumination/bur_cartouche_panel_h.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_cartouche_panel_h.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_cartouche_panel_v",
+     "pa": "ਲਾਜਵਰਦੀ ਤਖ਼ਤੀ (ਖੜ੍ਹਵੀਂ)",
+     "en": "Lapis panel with stepped cartouche (vertical)",
+     "note": "Burhanpuri p.7",
+     "preview": "assets/02_opening_illumination/bur_cartouche_panel_v.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_cartouche_panel_v.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_cloud_heading",
+     "pa": "ਬੱਦਲਨੁਮਾ ਸਿਰਲੇਖ-ਖ਼ਾਨਾ",
+     "en": "Cloud-band heading (placeholder)",
+     "note": "Burhanpuri p.33",
+     "preview": "assets/02_opening_illumination/bur_cloud_heading.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_cloud_heading.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_diamond_lattice_panel",
+     "pa": "ਕਿਰਮਚੀ ਜਾਲੀ",
+     "en": "Crimson diamond lattice",
+     "note": "Burhanpuri p.8",
+     "preview": "assets/02_opening_illumination/bur_diamond_lattice_panel.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_diamond_lattice_panel.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_mandorla_panel",
+     "pa": "ਮਿਹਰਾਬ ਵਿੱਚ ਸੁਨਹਿਰੀ ਸ਼ਮਸਾ",
+     "en": "Lobed mandorla in cusped niche",
+     "note": "Burhanpuri p.7",
+     "preview": "assets/02_opening_illumination/bur_mandorla_panel.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_mandorla_panel.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_ogee_arcade_headpiece",
+     "pa": "ਗੁੰਬਦਦਾਰ ਸਿਰਲੇਖ-ਪੱਟੀ",
+     "en": "Ogee arcade headpiece",
+     "note": "Burhanpuri p.8",
+     "preview": "assets/02_opening_illumination/bur_ogee_arcade_headpiece.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_ogee_arcade_headpiece.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_scroll_border_strip",
+     "pa": "ਸੁਨਹਿਰੀ ਵੇਲ — ਪੱਟੀ",
+     "en": "Gold scroll-vine border — strip",
+     "note": "Burhanpuri pp.7–8",
+     "preview": "assets/02_opening_illumination/bur_scroll_border_strip.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_scroll_border_strip.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_scroll_border_tile",
+     "pa": "ਸੁਨਹਿਰੀ ਵੇਲ — ਇਕਾਈ",
+     "en": "Gold scroll-vine border — tile",
+     "note": "Burhanpuri pp.7–8",
+     "preview": "assets/02_opening_illumination/bur_scroll_border_tile.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_scroll_border_tile.svg"
+      }
+     ]
+    },
+    {
+     "id": "bur_star_cartouche_band",
+     "pa": "ਅੱਠ-ਨੁਕਰੇ ਤਾਰਿਆਂ ਦੀ ਪੱਟੀ",
+     "en": "8-point star & cartouche band",
+     "note": "Burhanpuri p.8",
+     "preview": "assets/02_opening_illumination/bur_star_cartouche_band.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/02_opening_illumination/bur_star_cartouche_band.svg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "03_calligraphy_nishans",
+   "pa": "ਨੀਸਾਣ ਤੇ ਪੁਰਾਤਨ ਲਿਖਤ",
+   "en": "Nishans & historic calligraphy",
+   "items": [
+    {
+     "id": "cal_mool_rupa_panel",
+     "pa": "ਖ਼ਾਨੇ ਵਿੱਚ ਮੂਲ ਮੰਤ੍ਰ — ਭਾਈ ਰੂਪਾ ਪੋਥੀ",
+     "en": "Framed Mool Mantar — Bhai Rupa pothi",
+     "note": "p.488",
+     "preview": "assets/03_calligraphy_nishans/cal_mool_rupa_panel.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_mool_rupa_panel.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_moolmantar_g5_red",
+     "pa": "ਮੂਲ ਮੰਤ੍ਰ — ਸ਼ਿੰਗਰਫ਼ੀ ਸਿਆਹੀ",
+     "en": "Mool Mantar in red ink",
+     "note": "attributed to Sri Guru Arjan Dev Ji",
+     "preview": "assets/03_calligraphy_nishans/cal_moolmantar_g5_red.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_moolmantar_g5_red.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g10_gobindsingh",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਗੋਬਿੰਦ ਸਿੰਘ ਜੀ",
+     "en": "Nishan — Sri Guru Gobind Singh Ji",
+     "note": "",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g10_gobindsingh.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g10_gobindsingh.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g5_kartarpuri",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ (ਕਰਤਾਰਪੁਰੀ ਬੀੜ)",
+     "en": "Nishan — Sri Guru Arjan Dev Ji (Kartarpuri Bir)",
+     "note": "via Kapoor p.2",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g5_kartarpuri.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g5_kartarpuri.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g5_sabot",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਅਰਜਨ ਦੇਵ ਜੀ (ਸਬੋਤ ਬੀੜ)",
+     "en": "Nishan — Sri Guru Arjan Dev Ji (Sabot Bir)",
+     "note": "via Kapoor p.3",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g5_sabot.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g5_sabot.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g6_hargobind",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਹਰਿਗੋਬਿੰਦ ਸਾਹਿਬ ਜੀ",
+     "en": "Nishan — Sri Guru Hargobind Sahib Ji",
+     "note": "",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g6_hargobind.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g6_hargobind.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g6_kartarpuri",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਹਰਿਗੋਬਿੰਦ ਸਾਹਿਬ ਜੀ (ਕਰਤਾਰਪੁਰੀ ਬੀੜ)",
+     "en": "Nishan — Sri Guru Hargobind Sahib Ji (Kartarpuri Bir)",
+     "note": "via Kapoor p.10",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g6_kartarpuri.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g6_kartarpuri.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g7_dehradun",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਹਰਿ ਰਾਇ ਸਾਹਿਬ ਜੀ (ਦੇਹਰਾਦੂਨ ਬੀੜ, ੧੬੫੯)",
+     "en": "Nishan — Sri Guru Har Rai Sahib Ji (Dehra Dun Bir, 1659)",
+     "note": "via Kapoor p.15",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g7_dehradun.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g7_dehradun.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g7_harrai",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਹਰਿ ਰਾਇ ਸਾਹਿਬ ਜੀ",
+     "en": "Nishan — Sri Guru Har Rai Sahib Ji",
+     "note": "",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g7_harrai.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g7_harrai.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_nishan_g9_teghbahadur",
+     "pa": "ਨੀਸਾਣ — ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦਰ ਸਾਹਿਬ ਜੀ",
+     "en": "Nishan — Sri Guru Tegh Bahadur Sahib Ji",
+     "note": "",
+     "preview": "assets/03_calligraphy_nishans/cal_nishan_g9_teghbahadur.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_nishan_g9_teghbahadur.svg"
+      }
+     ]
+    },
+    {
+     "id": "cal_writing_g10",
+     "pa": "ਲਿਖਤ — ਸਰੋਤ ਅਨੁਸਾਰ ਦਸਮ ਪਾਤਸ਼ਾਹ ਜੀ ਦੀ",
+     "en": "Writing attributed to Sri Guru Gobind Singh Ji",
+     "note": "",
+     "preview": "assets/03_calligraphy_nishans/cal_writing_g10.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/03_calligraphy_nishans/cal_writing_g10.svg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "04_binding_coins",
+   "pa": "ਜਿਲਦਸਾਜ਼ੀ ਦੇ ਨਮੂਨੇ ਤੇ ਸਿੱਕੇ",
+   "en": "Binding tooling & coins",
+   "items": [
+    {
+     "id": "bind_bhanno_arabesque_symmetric",
+     "pa": "ਜਿਲਦ ਦੀ ਬੇਲ — ਚਹੁੰ-ਪਾਸੀ ਸਮਰੂਪ",
+     "en": "Cover arabesque — four-fold symmetric",
+     "note": "for brass block / stamp",
+     "preview": "assets/04_binding_coins/bind_bhanno_arabesque_symmetric.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/04_binding_coins/bind_bhanno_arabesque_symmetric.svg"
+      }
+     ]
+    },
+    {
+     "id": "bind_bhanno_front_arabesque",
+     "pa": "ਜਿਲਦ ਦੀ ਬੇਲ — ਜਿਵੇਂ ਮਿਲੀ",
+     "en": "Cover arabesque — as found",
+     "note": "Bhanno MS front cover",
+     "preview": "assets/04_binding_coins/bind_bhanno_front_arabesque.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/04_binding_coins/bind_bhanno_front_arabesque.svg"
+      }
+     ]
+    },
+    {
+     "id": "coin_ranjit_singh_obverse",
+     "pa": "ਨਾਨਕਸ਼ਾਹੀ ਰੁਪਈਆ — ਇੱਕ ਪਾਸਾ",
+     "en": "Nanakshahi rupee — face 1",
+     "note": "Maharaja Ranjit Singh era",
+     "preview": "assets/04_binding_coins/coin_ranjit_singh_obverse.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/04_binding_coins/coin_ranjit_singh_obverse.svg"
+      }
+     ]
+    },
+    {
+     "id": "coin_ranjit_singh_reverse",
+     "pa": "ਨਾਨਕਸ਼ਾਹੀ ਰੁਪਈਆ — ਦੂਜਾ ਪਾਸਾ",
+     "en": "Nanakshahi rupee — face 2",
+     "note": "Maharaja Ranjit Singh era",
+     "preview": "assets/04_binding_coins/coin_ranjit_singh_reverse.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/04_binding_coins/coin_ranjit_singh_reverse.svg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "05_source_studies",
+   "pa": "ਸਰੋਤਾਂ ਤੋਂ ਅਧਿਐਨ",
+   "en": "Studies from sources",
+   "items": [
+    {
+     "id": "study_burhanpuri_nishan_niche",
+     "pa": "ਨੀਸਾਣ ਲਈ ਥੰਮ੍ਹਾਂ ਵਾਲੀ ਮਿਹਰਾਬ",
+     "en": "Nishan niche on pillars",
+     "note": "Burhanpuri",
+     "preview": "assets/05_source_studies/study_burhanpuri_nishan_niche.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_burhanpuri_nishan_niche.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_cloud_collar_cartouche",
+     "pa": "ਬੱਦਲਨੁਮਾ ਖ਼ਾਨਾ",
+     "en": "Cloud-collar cartouche",
+     "note": "",
+     "preview": "assets/05_source_studies/study_cloud_collar_cartouche.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_cloud_collar_cartouche.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_damdami_millefleur_frame",
+     "pa": "ਫੁੱਲਕਾਰੀ ਚੌਖਟਾ",
+     "en": "Millefleur frame with rose cartouches",
+     "note": "Utara Damdami Bir",
+     "preview": "assets/05_source_studies/study_damdami_millefleur_frame.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_damdami_millefleur_frame.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_hukamnama_layouts",
+     "pa": "ਹੁਕਮਨਾਮਿਆਂ ਦੀ ਬਣਤਰ",
+     "en": "Hukamnama layouts",
+     "note": "",
+     "preview": "assets/05_source_studies/study_hukamnama_layouts.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_hukamnama_layouts.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_janamsakhi_triangle_field",
+     "pa": "ਤਿਕੋਣਾ ਲਿਖਤ-ਖੇਤਰ",
+     "en": "Triangular text field, folk border",
+     "note": "Janamsakhi Bhai Bala",
+     "preview": "assets/05_source_studies/study_janamsakhi_triangle_field.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_janamsakhi_triangle_field.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_kangura_sawtooth",
+     "pa": "ਕੰਗੂਰਾ ਕਿਨਾਰਾ",
+     "en": "Kangura sawtooth edge",
+     "note": "Bhanno cover · Damdami Bir",
+     "preview": "assets/05_source_studies/study_kangura_sawtooth.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_kangura_sawtooth.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_kurukshetra_cusped_arch",
+     "pa": "ਸੁਨਹਿਰੀ ਮਿਹਰਾਬ",
+     "en": "Cusped arch on gold ground",
+     "note": "Kurukshetra MN-000403",
+     "preview": "assets/05_source_studies/study_kurukshetra_cusped_arch.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_kurukshetra_cusped_arch.svg"
+      }
+     ]
+    },
+    {
+     "id": "study_lapis_arabesque_frame",
+     "pa": "ਲਾਜਵਰਦੀ ਬੇਲਦਾਰ ਚੌਖਟਾ",
+     "en": "Lapis arabesque frame",
+     "note": "pothi folio",
+     "preview": "assets/05_source_studies/study_lapis_arabesque_frame.svg",
+     "files": [
+      {
+       "label_pa": "SVG",
+       "label_en": "svg",
+       "path": "assets/05_source_studies/study_lapis_arabesque_frame.svg"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

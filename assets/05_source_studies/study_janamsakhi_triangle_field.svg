@@ -1,0 +1,35 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 | (C) 2026 Sikh Manuscript Revival contributors | https://creativecommons.org/licenses/by-sa/4.0/ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 320 260">
+          <defs>
+            <pattern id="zz" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+              <rect width="12" height="12" fill="#F2E7CF"></rect>
+              <path d="M0 6 L3 2 L6 6 L9 2 L12 6" fill="none" stroke="#D9542B" stroke-width="1.6"></path>
+              <circle cx="6" cy="10" r="1.2" fill="#3E7A5E"></circle>
+            </pattern>
+            <pattern id="bf" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+              <rect width="18" height="18" fill="#23408E"></rect>
+              <circle cx="5" cy="5" r="2.2" fill="#F7EFDC"></circle>
+              <circle cx="14" cy="13" r="2.2" fill="#E8742F"></circle>
+            </pattern>
+          </defs>
+          <rect x="8" y="4" width="304" height="252" fill="url(#zz)"></rect>
+          <rect x="32" y="28" width="256" height="204" fill="url(#bf)"></rect>
+          <rect x="76" y="50" width="168" height="164" fill="#F2E7CF"></rect>
+          <path d="M76 50 L160 50 L76 214 Z" fill="#4E9A5B"></path>
+          <path d="M160 50 L244 50 L244 214 Z" fill="#4E9A5B"></path>
+          <path d="M90 60 C110 80 96 110 112 128 M230 60 C210 80 224 110 208 128" fill="none" stroke="#E8F0E0" stroke-width="1.2"></path>
+          <circle cx="98" cy="70" r="5" fill="#D9542B"></circle><circle cx="98" cy="70" r="1.8" fill="#F7EFDC"></circle>
+          <circle cx="124" cy="62" r="4.5" fill="#3D5A9A"></circle><circle cx="124" cy="62" r="1.6" fill="#F7EFDC"></circle>
+          <circle cx="92" cy="112" r="4.5" fill="#D9542B"></circle><circle cx="92" cy="112" r="1.6" fill="#F7EFDC"></circle>
+          <circle cx="222" cy="70" r="5" fill="#D9542B"></circle><circle cx="222" cy="70" r="1.8" fill="#F7EFDC"></circle>
+          <circle cx="196" cy="62" r="4.5" fill="#3D5A9A"></circle><circle cx="196" cy="62" r="1.6" fill="#F7EFDC"></circle>
+          <circle cx="228" cy="112" r="4.5" fill="#D9542B"></circle><circle cx="228" cy="112" r="1.6" fill="#F7EFDC"></circle>
+          <path d="M76 214 L160 50 L244 214" fill="none" stroke="#C39A3E" stroke-width="3"></path>
+          <rect x="76" y="50" width="168" height="164" fill="none" stroke="#C39A3E" stroke-width="3"></rect>
+          <rect x="143.5" y="100" width="33" height="5" fill="#5E4A3A"></rect>
+          <rect x="133" y="120" width="54" height="5" fill="#5E4A3A"></rect>
+          <rect x="123" y="140" width="74" height="5" fill="#B23A24"></rect>
+          <rect x="112.5" y="160" width="95" height="5" fill="#5E4A3A"></rect>
+          <rect x="102.5" y="180" width="115" height="5" fill="#5E4A3A"></rect>
+          <rect x="92" y="200" width="136" height="5" fill="#5E4A3A"></rect>
+        </svg>
