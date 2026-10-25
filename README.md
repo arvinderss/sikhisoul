@@ -38,6 +38,23 @@ These designs come from sacred manuscripts. Please use them with full respect fo
 Suggested credit:
 > Ornament from ਸਿੱਖੀ ਸੋਲ / Sikhi Soul, CC BY-SA 4.0, https://github.com/arvinderss/sikhisoul
 
+## ਬੇਨਤੀ ਤੇ ਸਪਸ਼ਟੀਕਰਨ · A humble note
+
+ਇਹ ਭੰਡਾਰ ਅਤੇ ਵੈੱਬਸਾਈਟ ਮੁੱਖ ਤੌਰ 'ਤੇ ਬਣਾਉਟੀ ਬੁੱਧੀ (AI) ਦੀ ਸਹਾਇਤਾ ਨਾਲ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ, ਅਤੇ ਹੱਥੀਂ ਪੜਤਾਲ ਸੀਮਤ ਹੀ ਹੋ ਸਕੀ ਹੈ।
+ਫਿਰ ਵੀ ਜਿਨ੍ਹਾਂ ਸਰੋਤਾਂ ਤੋਂ ਜਾਣਕਾਰੀ ਤੇ ਨਮੂਨੇ ਲਏ ਗਏ ਹਨ, ਉਹ ਪੂਰੀ ਲਗਨ, ਸਾਵਧਾਨੀ ਅਤੇ ਸਤਿਕਾਰ ਨਾਲ ਚੁਣੇ ਤੇ ਪਰਖੇ ਗਏ ਹਨ।
+ਜੇ ਕਿਤੇ ਕੋਈ ਭੁੱਲ-ਚੁੱਕ ਨਜ਼ਰ ਆਵੇ ਤਾਂ ਖ਼ਿਮਾ ਕਰਨਾ ਜੀ ਅਤੇ ਸਾਨੂੰ ਜ਼ਰੂਰ ਦੱਸਣਾ।
+
+This library and website were created mainly with the help of AI, with only limited manual review. The sources
+the information and designs come from were nevertheless chosen and checked diligently, carefully and with respect.
+If you find any mistake, please forgive it, and let us know.
+
+**ਸੰਗਤ ਨੂੰ ਸੱਦਾ · An invitation to the Sangat.** If this work speaks to you, please join in. Corrections, better scans,
+new tracings, translations, historical knowledge and ideas are all welcome; open an
+[issue](https://github.com/arvinderss/sikhisoul/issues) or a pull request (see [CONTRIBUTING.md](CONTRIBUTING.md)).
+We would love to keep this treasury growing and up to date, guided by the ideas of the whole Sangat.
+
+ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ ॥ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਹਿ ॥
+
 ## Working on it
 
 ```bash

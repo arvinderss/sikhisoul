@@ -197,8 +197,16 @@ input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--shingarf
 
 /* ---------- 5. Gallery / endless carousel ---------- */
 .carousels { display: flex; flex-direction: column; gap: 28px; }
+.carousel__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
 .carousel h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 1.25rem;
   color: var(--lapis);
   display: flex;
@@ -207,23 +215,34 @@ input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--shingarf
   align-items: baseline;
 }
 .carousel h3 .en { font-size: .8em; color: var(--ink-soft); }
+.carousel__navs { display: flex; gap: 8px; }
+.carousel__nav {                 /* ‹ › buttons, 44px touch targets */
+  width: 44px;
+  height: 44px;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--lapis);
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel__nav:hover { background: var(--gold-light); }
 .carousel__window {
-  overflow: hidden;
+  /* A real scroll area: app.js rolls it, visitors can swipe or scroll it by hand. */
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
   border-block: 1px solid var(--gold);
   padding: 12px 0;
   /* soft fade at both ends, like a scroll being unrolled */
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
-.carousel__track {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  animation: carousel-roll var(--duration, 60s) linear infinite;
-}
-.carousel:hover .carousel__track,
-.carousel:focus-within .carousel__track,
-.carousels.is-still .carousel__track { animation-play-state: paused; }
-@keyframes carousel-roll { to { transform: translateX(-50%); } }   /* track holds two copies */
+.carousel__window::-webkit-scrollbar { display: none; }
+.carousel__track { display: flex; gap: 16px; width: max-content; }
+.carousel--still .carousel__window { mask-image: none; }
 
 .card {
   flex: 0 0 auto;
@@ -247,8 +266,6 @@ input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--shingarf
 }
 .card img.is-placeholder,
 .viewer img.is-placeholder { object-fit: contain; padding: 40px; background: var(--paper-deep); }
-.carousel--still .carousel__track { animation: none; }
-.carousel--still .carousel__window { mask-image: none; overflow-x: auto; }
 .card__text { padding: 8px 10px 10px; }
 .card__title { font-size: .92rem; line-height: 1.45; font-weight: 600; }
 .card__era { font-size: .8rem; color: var(--ink-soft); margin-top: 2px; }
@@ -299,30 +316,46 @@ input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--shingarf
 
 /* ---------- 7. Viewer dialog ---------- */
 .viewer {
-  max-width: min(920px, 94vw);
-  max-height: 92vh;
-  padding: 20px;
+  width: min(920px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  padding: 0 20px 20px;
+  overflow: auto;
   color: var(--ink);
   background: var(--paper-light);
   border: var(--rule);
 }
-.viewer::backdrop { background: rgba(30, 22, 14, .72); }
-.viewer figure { margin: 0; }
-.viewer img { max-height: 62vh; margin: 0 auto 12px; object-fit: contain; }
-.viewer h3 { margin: 0; color: var(--shingarf); font-size: 1.3rem; line-height: 1.4; }
+.viewer::backdrop { background: rgba(30, 22, 14, .78); }
+.viewer__bar {                    /* stays visible however far the details are scrolled */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 -20px 8px;
+  padding: 8px 12px;
+  background: var(--paper-light);
+  border-bottom: 1px solid var(--gold);
+}
 .viewer__close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  width: 44px;
-  height: 44px;
-  font-size: 28px;
-  line-height: 1;
-  color: var(--ink);
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 4px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--paper-light);
+  background: var(--shingarf);
   border: 0;
+  border-radius: 999px;
   cursor: pointer;
 }
+.viewer__close:hover { background: #8a2818; }
+.viewer figure { margin: 0; }
+.viewer img { max-height: 60dvh; margin: 0 auto 12px; object-fit: contain; }
+.viewer h3 { margin: 0; color: var(--shingarf); font-size: 1.3rem; line-height: 1.4; }
+.viewer__back { margin-top: 16px; }
 .meta { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; font-size: .9rem; margin: 10px 0 0; }
 .meta dt { font-weight: 600; }
 .meta dd { margin: 0; overflow-wrap: anywhere; }
@@ -331,12 +364,13 @@ input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--shingarf
 .colophon { text-align: center; padding: 0 16px 40px; max-width: 1100px; margin: 0 auto; }
 .colophon .band { margin-bottom: 20px; }
 .fateh { color: var(--shingarf); font-weight: 700; font-size: 1.15rem; }
+.disclosure { font-size: .9rem; color: var(--ink-soft); max-width: 70ch; margin-inline: auto; }
+.disclosure .en { display: block; }
 .noscript { text-align: center; padding: 16px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .carousel__track { animation: none; }
-  .carousel__window { overflow-x: auto; mask-image: none; }
+  .carousel__window { mask-image: none; }
   .card[data-copy] { display: none; }          /* no loop needed, so hide the duplicate set */
 }
 @media (max-width: 600px) {

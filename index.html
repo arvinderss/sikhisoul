@@ -154,15 +154,26 @@
 
   <footer class="colophon">
     <div class="band band--top" aria-hidden="true"></div>
-    <p class="fateh">ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ ॥ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਹਿ ॥</p>
-    <p>ਭੁੱਲ-ਚੁੱਕ ਲਈ ਖ਼ਿਮਾ ਦੇ ਜਾਚਕ ਹਾਂ। ਸੁਧਾਰ ਤੇ ਸੁਝਾਅ <a href="https://github.com/arvinderss/sikhisoul/issues">ਇੱਥੇ</a> ਭੇਜੋ ਜੀ।</p>
-    <p class="en">We humbly seek forgiveness for any error. Corrections are welcome on
+    <p class="disclosure">
+      ਇਹ ਭੰਡਾਰ ਤੇ ਵੈੱਬਸਾਈਟ ਮੁੱਖ ਤੌਰ 'ਤੇ ਬਣਾਉਟੀ ਬੁੱਧੀ (AI) ਦੀ ਸਹਾਇਤਾ ਨਾਲ ਤਿਆਰ ਹੋਏ ਹਨ ਅਤੇ ਹੱਥੀਂ ਪੜਤਾਲ ਸੀਮਤ ਹੈ;
+      ਸਰੋਤ ਪੂਰੀ ਲਗਨ ਤੇ ਸਤਿਕਾਰ ਨਾਲ ਚੁਣੇ ਤੇ ਪਰਖੇ ਗਏ ਹਨ।
+      <span class="en">Created mainly with the help of AI, with limited manual review; sources were chosen and checked with diligence and respect.</span>
+    </p>
+    <p>ਭੁੱਲ-ਚੁੱਕ ਲਈ ਖ਼ਿਮਾ ਦੇ ਜਾਚਕ ਹਾਂ। ਸੰਗਤ ਦੇ ਸੁਧਾਰ, ਸੁਝਾਅ ਤੇ ਯੋਗਦਾਨ ਦਾ ਸਦਾ ਸੁਆਗਤ ਹੈ —
+      <a href="https://github.com/arvinderss/sikhisoul/issues">ਇੱਥੇ</a> ਸਾਂਝੇ ਕਰੋ ਜੀ।</p>
+    <p class="en">We humbly seek forgiveness for any error. The Sangat's corrections, ideas and contributions are always welcome on
       <a href="https://github.com/arvinderss/sikhisoul">GitHub</a>.</p>
+    <p class="fateh">ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ ॥ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਹਿ ॥</p>
   </footer>
 
   <!-- Image viewer (filled by app.js) -->
+  <!-- Closes with ✕, "ਵਾਪਸ", Esc, a tap outside, or the Back gesture — see app.js › Viewer -->
   <dialog id="viewer" class="viewer" aria-labelledby="viewer-title">
-    <form method="dialog"><button class="viewer__close" aria-label="ਬੰਦ ਕਰੋ">×</button></form>
+    <div class="viewer__bar">
+      <button type="button" id="viewer-close" class="viewer__close" aria-label="ਬੰਦ ਕਰੋ — close">
+        <span aria-hidden="true">✕</span> ਬੰਦ ਕਰੋ
+      </button>
+    </div>
     <figure>
       <img id="viewer-img" alt="">
       <figcaption>
@@ -171,6 +182,7 @@
         <dl id="viewer-meta" class="meta"></dl>
       </figcaption>
     </figure>
+    <button type="button" id="viewer-back" class="button viewer__back">← ਚਿੱਤਰ-ਮਾਲਾ ਵੱਲ ਵਾਪਸ ਜਾਓ</button>
   </dialog>
 
   <noscript><p class="noscript">ਚਿੱਤਰ-ਮਾਲਾ ਤੇ ਭੰਡਾਰ ਵੇਖਣ ਲਈ JavaScript ਚਾਲੂ ਕਰੋ, ਜਾਂ <a href="assets/">assets/</a> ਫੋਲਡਰ ਸਿੱਧਾ ਵੇਖੋ।</p></noscript>

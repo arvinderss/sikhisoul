@@ -52,6 +52,30 @@ Until an image is downloaded, the page shows it straight from Wikimedia Commons 
 - Give dates and attributions **as the source states them**, marked *ਸਰੋਤ ਅਨੁਸਾਰ / per source* when they are claims.
 - Do not add Gurbani text to the page beyond the opening *ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥* and the closing Fateh.
 
+## How the carousels work
+Each category is a horizontally scrollable window holding two identical sets of cards. `app.js` (the `Roller`)
+moves the window's `scrollLeft` a little every animation frame. When it passes the end of the first set it
+jumps back by exactly one set width, which is invisible because both sets are identical. Because it is a real scroll
+area, visitors can swipe, use a trackpad or mouse wheel, or press the ‹ › buttons. Rolling pauses while they do and
+resumes 2.5 s later (`RESUME_AFTER_MS`). Speed is `SPEED_PX_PER_SEC`. Categories with fewer than 3 images are shown still.
+
+## The image viewer
+It closes with the ✕ button (always visible at the top), the ਵਾਪਸ (back) button at the bottom, Esc, a tap outside the
+picture, or the browser/phone Back gesture. Opening it adds a history entry, so Back closes the viewer instead of
+leaving the page.
+
+## Testing
+```bash
+npm install            # installs Playwright (once)
+npx playwright install chromium
+npm test               # = node tests/site.test.js
+```
+The suite starts its own local server and runs about 60 checks in a real browser at phone, tablet and desktop sizes.
+It covers: carousels rolling, swiping, ‹ › buttons and resuming; opening and closing the viewer by every route, with ✕
+always visible; the carousel working again after the viewer closes; keyboard use; filters; library tabs, search and
+that all 134 download links exist; no sideways scrolling from 320 px to 1440 px; reduced-motion behaviour; and the
+integrity of the data files. Please run it before every pull request.
+
 ## Accessibility
 - All controls are real buttons, links and form fields, at least 44 px tall.
 - The carousel pauses on hover or focus and with the "ਠਹਿਰਾਓ" (pause) checkbox. With *reduced motion* switched on, it stops

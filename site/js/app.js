@@ -2,22 +2,30 @@
   ਸਿੱਖੀ ਸੋਲ — page behaviour
   SPDX-License-Identifier: GPL-3.0-or-later
 
-  Two independent parts, each driven by a JSON file:
+  Three independent parts:
     Gallery  (#chitra-mala) <- site/data/gallery.json   endless carousels, one per category
+    Viewer   (#viewer)                                   image details in a modal dialog
     Library  (#bhandar)     <- site/data/assets.json    tabbed grid with search and downloads
 
   No framework and no build step. To change content, edit the JSON files
   (see docs/SITE.md); this script should rarely need touching.
+  Behaviour is covered by tests/site.test.js (see docs/SITE.md › Testing).
 */
 (function () {
   "use strict";
 
-  // Seconds each card stays in view while a carousel rolls. Lower = faster.
-  var SECONDS_PER_CARD = 5;
-  // A category needs at least this many images (and must be wider than the screen) to roll endlessly.
-  var MIN_LOOP = 3;
-  // Width requested from Wikimedia when an image has not been downloaded locally yet.
-  var REMOTE_WIDTH = 480;
+  /* ---------- settings ---------- */
+
+  var SPEED_PX_PER_SEC = 40;   // how fast a carousel rolls
+  var RESUME_AFTER_MS = 2500;  // a carousel waits this long after the visitor stops touching it
+  var MIN_LOOP = 3;            // fewer images than this: shown still, not looped
+  // Wikimedia only serves certain thumbnail widths; 500 and 1280 are two of them.
+  var REMOTE_WIDTH = 500;
+  var REMOTE_WIDTH_LARGE = 1280;
+  // Shown when an image cannot be loaded (offline, or blocked): a quiet motif, never broken alt text.
+  var PLACEHOLDER = "assets/01_borders_burhanpuri/motifs/bur_b01_motif.svg";
+
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- small helpers ---------- */
 
@@ -50,6 +58,87 @@
       "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(item.commons.replace(/ /g, "_"));
   }
 
+  function guardImage(img) {
+    img.addEventListener("error", function () {
+      if (img.src.indexOf(PLACEHOLDER) !== -1) return;
+      img.src = PLACEHOLDER;
+      img.classList.add("is-placeholder");
+    });
+    return img;
+  }
+
+  /* ================= Carousel ("Roller") =================
+     Each carousel is a horizontally scrollable window holding two identical
+     sets of cards. A requestAnimationFrame loop advances scrollLeft; when it
+     passes the end of the first set it jumps back by one set width, which
+     looks seamless because both sets are identical.
+     Because it is a real scroll area, visitors can swipe, drag the trackpad,
+     use the ‹ › buttons or the keyboard; rolling pauses while they do and
+     resumes RESUME_AFTER_MS later. */
+
+  var rollers = [];
+  var globalStill = false;   // the "ਠਹਿਰਾਓ" checkbox
+  var viewerOpen = false;
+
+  function Roller(win, looping) {
+    this.win = win;
+    this.looping = looping && !reduceMotion;
+    this.pos = 0;              // exact (fractional) scroll position we drive
+    this.hover = false;
+    this.lastTouch = -Infinity; // time of last visitor interaction (none yet)
+    var self = this;
+    ["pointerdown", "wheel", "touchstart", "keydown"].forEach(function (ev) {
+      win.addEventListener(ev, function () { self.touched(); }, { passive: true });
+    });
+    win.addEventListener("mouseenter", function () { self.hover = true; });
+    win.addEventListener("mouseleave", function () { self.hover = false; self.touched(); });
+    win.addEventListener("scroll", function () { self.wrap(); }, { passive: true });
+  }
+  Roller.prototype.setWidth = function () {
+    return this.looping ? this.win.firstElementChild.scrollWidth / 2 : 0;
+  };
+  Roller.prototype.touched = function () { this.lastTouch = performance.now(); };
+  Roller.prototype.paused = function (now) {
+    var a = document.activeElement;
+    return !this.looping || globalStill || viewerOpen || this.hover || document.hidden ||
+      now - this.lastTouch < RESUME_AFTER_MS ||
+      // pause only while a keyboard user is focused inside (not after a mouse/tap click)
+      (this.win.contains(a) && a.matches && a.matches(":focus-visible"));
+  };
+  Roller.prototype.wrap = function () {
+    // Keep the scroll position inside [1, setWidth + 1]. Both sets are identical, so a jump
+    // of exactly one set width is invisible. The 1px margins stop the two rules undoing each other.
+    var w = this.setWidth();
+    if (!w) return;
+    if (this.win.scrollLeft > w + 1) this.win.scrollLeft -= w;
+    else if (this.win.scrollLeft < 1) this.win.scrollLeft += w;
+  };
+  Roller.prototype.step = function (now, dt) {
+    if (!this.win.isConnected) return false;
+    // If the visitor moved it, adopt their position.
+    if (Math.abs(this.win.scrollLeft - Math.round(this.pos)) > 2) this.pos = this.win.scrollLeft;
+    if (this.paused(now)) return true;
+    this.pos += SPEED_PX_PER_SEC * dt;
+    var w = this.setWidth();
+    if (w && this.pos > w + 1) this.pos -= w;
+    this.win.scrollLeft = Math.round(this.pos);
+    return true;
+  };
+  Roller.prototype.nudge = function (dir) {
+    this.touched();
+    var card = this.win.querySelector(".card");
+    var by = card ? (card.getBoundingClientRect().width + 16) * 2 : 300;
+    this.win.scrollBy({ left: dir * by, behavior: reduceMotion ? "auto" : "smooth" });
+  };
+
+  var lastFrame = 0;
+  function tick(now) {
+    var dt = lastFrame ? Math.min((now - lastFrame) / 1000, 0.1) : 0;
+    lastFrame = now;
+    rollers = rollers.filter(function (r) { return r.step(now, dt); });
+    window.requestAnimationFrame(tick);
+  }
+
   /* ================= Gallery ================= */
 
   var gallery = null;   // parsed gallery.json
@@ -60,33 +149,22 @@
     });
   }
 
-  // Shown when an image cannot be loaded (offline, or blocked): a quiet motif, never broken alt text.
-  var PLACEHOLDER = "assets/01_borders_burhanpuri/motifs/bur_b01_motif.svg";
-  function guardImage(img) {
-    img.addEventListener("error", function onErr() {
-      img.removeEventListener("error", onErr);
-      img.src = PLACEHOLDER;
-      img.classList.add("is-placeholder");
-    });
-    return img;
-  }
-
   function makeCard(item, isCopy) {
     var era = gallery.eras[item.era] || gallery.eras.unknown;
     var card = el("button", { class: "card", type: "button" }, [
-      guardImage(el("img", { src: imageSrc(item), alt: item.pa + " — " + item.en, loading: "lazy", decoding: "async" })),
+      guardImage(el("img", { src: imageSrc(item), alt: item.pa + " — " + item.en, loading: "lazy", decoding: "async", draggable: "false" })),
       el("div", { class: "card__text" }, [
         el("div", { class: "card__title", text: item.pa }),
         el("div", { class: "card__era", text: era.pa })
       ])
     ]);
     if (isCopy) {
-      // The second copy exists only to make the loop seamless; hide it from assistive tech.
+      // Copies exist only to make the loop seamless; hide them from assistive tech and Tab.
       card.setAttribute("data-copy", "");
       card.setAttribute("aria-hidden", "true");
       card.tabIndex = -1;
     }
-    card.addEventListener("click", function () { openViewer(item); });
+    card.addEventListener("click", function () { openViewer(item, card); });
     return card;
   }
 
@@ -95,6 +173,7 @@
     var guru = document.getElementById("filter-guru").value;
     var host = document.getElementById("carousels");
     host.textContent = "";
+    rollers = [];
 
     var shown = 0;
     Object.keys(gallery.categories).forEach(function (catKey) {
@@ -107,37 +186,54 @@
       shown += items.length;
 
       var cat = gallery.categories[catKey];
-      var track = el("div", { class: "carousel__track" });
-      // Fewer than MIN_LOOP images: show them still; looping one or two pictures looks careless.
       var looping = items.length >= MIN_LOOP;
+      var track = el("div", { class: "carousel__track" });
       if (looping) {
         // One "set" must be wider than the widest screen, so short lists repeat inside it.
         var set = items.slice();
         while (set.length < 7) set = set.concat(items);
         set.forEach(function (it, i) { track.appendChild(makeCard(it, i >= items.length)); });
-        // A second identical set; the CSS animation slides by exactly one set (-50%) and repeats.
-        set.forEach(function (it) { track.appendChild(makeCard(it, true)); });
-        track.style.setProperty("--duration", (set.length * SECONDS_PER_CARD) + "s");
+        set.forEach(function (it) { track.appendChild(makeCard(it, true)); });   // second, identical set
       } else {
         items.forEach(function (it) { track.appendChild(makeCard(it, false)); });
       }
 
+      var win = el("div", { class: "carousel__window", tabindex: "-1" }, [track]);
+      var roller = new Roller(win, looping);
+      rollers.push(roller);
+
+      var prev = el("button", { class: "carousel__nav", type: "button", "aria-label": "ਪਿੱਛੇ — previous", text: "‹" });
+      var next = el("button", { class: "carousel__nav", type: "button", "aria-label": "ਅੱਗੇ — next", text: "›" });
+      prev.addEventListener("click", function () { roller.nudge(-1); });
+      next.addEventListener("click", function () { roller.nudge(1); });
+
       host.appendChild(el("section", { class: "carousel" + (looping ? "" : " carousel--still"), "aria-label": cat.pa }, [
-        el("h3", {}, [el("span", { text: cat.pa }), el("span", { class: "en", text: cat.en + " · " + items.length })]),
-        el("div", { class: "carousel__window" }, [track])
+        el("div", { class: "carousel__head" }, [
+          el("h3", {}, [el("span", { text: cat.pa }), el("span", { class: "en", text: cat.en + " · " + items.length })]),
+          el("div", { class: "carousel__navs" }, [prev, next])
+        ]),
+        win
       ]));
+      // start a little in, so the visitor can also scroll left from the start
+      if (roller.looping) window.requestAnimationFrame(function () { roller.pos = win.scrollLeft = 1; });
     });
 
     if (!shown) host.appendChild(el("p", { class: "empty", text: "ਇਸ ਚੋਣ ਲਈ ਅਜੇ ਕੋਈ ਚਿੱਤਰ ਨਹੀਂ। No images for this selection yet." }));
   }
 
-  function openViewer(item) {
+  /* ================= Viewer =================
+     Closes with: the ✕ bar button, the "ਵਾਪਸ" button, Esc, a tap outside the
+     picture, or the browser/phone Back gesture (we push a history entry when
+     it opens). After closing, focus returns to the card without pausing the carousel. */
+
+  var returnFocus = null;
+
+  function openViewer(item, fromCard) {
     var dlg = document.getElementById("viewer");
     var era = gallery.eras[item.era] || gallery.eras.unknown;
     var img = document.getElementById("viewer-img");
     img.classList.remove("is-placeholder");
-    if (!img.dataset.guarded) { guardImage(img); img.dataset.guarded = "1"; }
-    img.src = imageSrc(item, 1200);
+    img.src = imageSrc(item, REMOTE_WIDTH_LARGE);
     img.alt = item.pa + " — " + item.en;
     document.getElementById("viewer-title").textContent = item.pa;
     document.getElementById("viewer-en").textContent = item.en;
@@ -159,8 +255,47 @@
     meta.appendChild(el("dt", { text: "ਮੂਲ ਸਰੋਤ" }));
     meta.appendChild(el("dd", {}, [el("a", { href: sourcePage(item), target: "_blank", rel: "noopener", text: "Wikimedia Commons" })]));
 
-    if (typeof dlg.showModal === "function") dlg.showModal();
-    else window.open(sourcePage(item), "_blank", "noopener");
+    if (typeof dlg.showModal !== "function") { window.open(sourcePage(item), "_blank", "noopener"); return; }
+    returnFocus = fromCard || null;
+    viewerOpen = true;
+    dlg.showModal();
+    dlg.scrollTop = 0;
+    document.getElementById("viewer-close").focus({ preventScroll: true });
+    // A history entry so Back (browser button, phone swipe) closes the viewer instead of leaving the page.
+    if (!(history.state && history.state.viewer)) history.pushState({ viewer: true }, "");
+  }
+
+  function closeViewer(fromHistory) {
+    var dlg = document.getElementById("viewer");
+    if (!dlg.open) return;
+    dlg.close();                       // fires "close" -> afterClose()
+    if (!fromHistory && history.state && history.state.viewer) history.back();
+  }
+
+  function afterClose() {
+    viewerOpen = false;
+    // Give focus back to the card that opened the viewer (keyboard users keep their place).
+    // The carousel only stays paused for *keyboard* focus (:focus-visible), so after a
+    // mouse click or tap it simply rolls on.
+    if (returnFocus && returnFocus.isConnected) returnFocus.focus({ preventScroll: true });
+    returnFocus = null;
+    rollers.forEach(function (r) { r.touched(); });  // a short, gentle pause before rolling on
+  }
+
+  function initViewer() {
+    var dlg = document.getElementById("viewer");
+    document.getElementById("viewer-close").addEventListener("click", function () { closeViewer(false); });
+    document.getElementById("viewer-back").addEventListener("click", function () { closeViewer(false); });
+    dlg.addEventListener("cancel", function (e) { e.preventDefault(); closeViewer(false); });   // Esc
+    dlg.addEventListener("close", afterClose);
+    // tap/click on the dimmed backdrop (the dialog element itself, outside its content box)
+    dlg.addEventListener("click", function (e) {
+      if (e.target !== dlg) return;
+      var r = dlg.getBoundingClientRect();
+      var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) closeViewer(false);
+    });
+    window.addEventListener("popstate", function () { closeViewer(true); });
   }
 
   function initGallery() {
@@ -177,9 +312,11 @@
       document.getElementById("filter-era").addEventListener("change", renderGallery);
       document.getElementById("filter-guru").addEventListener("change", renderGallery);
       document.getElementById("filter-still").addEventListener("change", function (e) {
-        document.getElementById("carousels").classList.toggle("is-still", e.target.checked);
+        globalStill = e.target.checked;
+        if (!globalStill) rollers.forEach(function (r) { r.lastTouch = -Infinity; });
       });
       renderGallery();
+      window.requestAnimationFrame(tick);
     }).catch(function (err) {
       document.getElementById("carousels").textContent = "ਚਿੱਤਰ-ਮਾਲਾ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ। (" + err.message + ")";
     });
@@ -243,6 +380,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    initViewer();
     initGallery();
     initLibrary();
   });
